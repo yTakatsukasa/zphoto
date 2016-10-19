@@ -1,0 +1,10 @@
+background_color               = #ffffff
+border_inactive_color          = #00008866
+border_active_color            = #ffffffcc
+shadow_color                   = #0000ff44
+caption_border_color           = #ffffffcc
+caption_frame_color            = #ffffffcc
+caption_text_color             = #000077ff
+progress_bar_color             = #00ff0033
+progress_bar_text_color        = #ff7f0077
+progress_bar_housing_color     = #000088cc

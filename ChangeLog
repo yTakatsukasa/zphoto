@@ -1,0 +1,1500 @@
+2004-07-21  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto: 1.2 Released!
+
+	* util.c (zphoto_get_movie_suffixes): Renamed from
+	zphoto_get_video_suffixes. 
+	(zphoto_movie_file_p): Renamed from zphoto_video_file_p.
+	(zphoto_support_movie_p): Renamed from zphoto_support_video_p.
+
+	* configure.in: Bumped version number to 1.2.
+
+	* util.c (zphoto_get_image_suffixes): New function.
+	(zphoto_image_file_p): Use it.
+	(zphoto_get_video_suffixes): New function.
+	(zphoto_video_file_p): Use it.
+	(zphoto_supported_file_p): Moved from zphoto.c.
+	* wxzphoto.cpp (OnDropFiles): Use zphoto_supported_file_p.
+	(CollectFiles): Ditto.
+	(OpenInputDirectory): Ditto.
+
+	* image.cpp (zphoto_image_get_bitmap): New function.
+	* wxzphoto.cpp (GetBitmap): New function.
+
+	* configure.in (CXXFLAGS): Remove -pedantic and -Wmissing-prototypes.
+
+	* util.c (zphoto_video_file_p): Do not use zphoto_file_p.
+	(zphoto_image_file_p): Ditto.
+	(zphoto_web_file_p): Ditto.
+	(zphoto_dot_file_p): Ditto.
+
+	* configure.in: Abort if neither imlib2 nor ImageMagick is found.
+
+2004-07-10  Satoru Takabayashi  <satoru@namazu.org>
+
+	* templates/default/all/Makefile.am (all): Fixe the bashism bug
+	reported by OBATA Akio <obata@zit.to>.
+	(clean): Remove *.js.* *.txt files as well.
+
+2004-07-09  Satoru Takabayashi  <satoru@namazu.org>
+
+	* util.c (zphoto_chdir_if_w32): Removed.
+	(zphoto_get_program_file_name): New function.
+	* wxzphoto.cpp (chdir_to_program_directory): New function.
+	(ZphotoInit): Use it.
+
+2004-07-07  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto: 1.1 Released!
+
+	* NEWS: Updated.
+	* doc/zphoto.html: Updated.
+	doc/zphoto-ja.html: Ditto.
+
+2004-07-06  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (add_photo_substitutions): Rename variable names:
+	- photo_file_name -> file_name
+	- escaped_photo_file_name -> escaped_file_name
+	- next_file_name -> next_html_file_name
+	- prev_file_name -> prev_html_file_name
+	- next_photo_file_name -> next_file_name
+	* templates/default/.photo.html: Updated to conform to them.
+
+	* util.c (zphoto_web_file_p): Add .js file.
+	* templates/default/.photo.html: Fix syntax errors in HTML using
+	htmllint. 
+
+	* templates/default/ja/index.html: Ditto.
+	* templates/default/en/index.html: Ditto.
+	* templates/default/ja/zoom.js: New file derived from index.html.
+	* templates/default/en/zoom.js: Ditto.
+	* templates/default/ja/Makefile.am (templates_DATA): Add zoom.js.
+	* templates/default/en/Makefile.am (templates_DATA): Add zoom.js.
+	* templates/default/all/Makefile.am (all): Copy .js files as well.
+	(install-data-local): Ditto.
+
+	* zphoto.c (escape_html): New function.
+	(add_photo_substitutions): Use it.
+	(add_photo_substitutions): Escape next_photo_file_name as well.
+	(add_photo_substitutions): Rename a substition name from
+	unescaped_file_name to escaped_photo_file_name.
+	* templates/default/.photo.html: Updated.
+
+2004-07-04  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (escape_unix): New function to fix the bug
+	reported by Kouhei Sutou <kou@cozmixng.org> [zphoto-new:39].
+	(make_zip_file): Use it.
+
+	* util.c (zphoto_escape_url): New function to fix the bug
+	reported by Kouhei Sutou <kou@cozmixng.org> [zphoto-new:39].
+	* flash.c (create_open_action): Use it.
+	* zphoto.c (make_html_album): Ditto.
+	(add_common_substitutions): Ditto.
+	(add_photo_substitutions): Use it.
+	(add_photo_substitutions): Add a new substitution:
+	unescaped_file_name. 
+	* templates/default/.photo.html: Updated.
+
+	* configure.in: Bumped version number to 1.1.
+
+2004-06-23  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (zphoto_make_all): Do nothing if no input files are
+	specified. 
+
+	* template.c (read_file): Use ferror to check an error.
+
+2004-05-14  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (wxZphotoFrame): Change the position of calling
+	locale.Init to support deciman numbers like 1,000 in European
+	countries. Thanks to Max Zomborszki <max@kth.se> for the report.
+
+2004-05-11  Satoru Takabayashi  <satoru@namazu.org>
+
+	* Makefile.am (dist-w32): Simplified.
+
+2004-05-09  Satoru Takabayashi  <satoru@namazu.org>
+
+	* configure.in: New option: --with-wx-config
+	Use AC_PATH_PROGS for zip, imlib2-config, avifile-config.
+
+	* zphoto: 1.0 Released!
+
+	* configure.in (AC_OUTPUT): Add doc/images/Makefile.
+
+	* doc/images/Makefile.am (image_DATA): New file.
+
+	* wxzphoto.h (class wxZphotoInfoLabel): New class.
+	(class wxZphotoInfoContentLabel): Renamed from wxZphotoStaticText.
+
+2004-05-08  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (IsNoExif): New method for wxZphotoFrame.
+
+	* image.cpp (zphoto_image_get_time): New function.
+	* zphoto.c (zphoto_add_file_names): Use zphoto_image_get_time.
+
+	* wxzphoto.cpp (Attach): New method for wxZphotoPanel.
+	(Notify): Ditto.
+	(GetThumbnail): Ditto.
+	(GetInputFileName): Ditto.
+	(IsInputFileSelected): Ditto.
+	(GetOriginalSize): Ditto.
+
+	* wxzphoto.h (class wxZphotoPanel): Inherit wxZphotoSubject.
+
+	* wxzphoto.cpp (Update): New method for wxZphotoStaticText.
+	(Subscribe): Ditto.
+
+	* wxzphoto.h (class wxZphotoStaticText): New class.
+
+	* configure.in: Add checks for wxgtk2-config wxgtk-config
+	wxgtk2-2.5-config wxgtk-2.5-config wxgtk-2.4-config.
+
+	* configure.in: Bumped version number to 1.0.
+
+2004-05-07  Satoru Takabayashi  <satoru@namazu.org>
+
+	* exif.c (zphoto_exif_get_time): Renamed a variable name: "time" to
+	"t" and added an error checking.
+	(zphoto_exif_get_time): Change the type of special_offset from
+	unsigned long to int, and add an error checking for special_offset.
+	(get_special_offset): Adopt the change.
+	(get_time): Use memset to clear the struct tm variable. Suggested
+	by Takeshi Yaegashi <yaegashi@keshi.org>.
+
+2004-05-06  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (CollectFiles): Simplified.
+
+2004-05-04  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (OnContextMenu): Add a separator.
+	(OnClearAll): New method.
+	(OnClearSelected): Ditto.
+
+2004-05-01  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (CompareByBasename): New function.
+
+	* config.c (zphoto_config_new): New option: --no-exif. Substitute --exif.
+	* zphoto.c (zphoto_add_file_names): Adopt the changes.
+
+	* config.c (zphoto_config_read_rcfile): Removed the second parameter.
+
+	* templates/default/Makefile.am (css-colors.txt): New rule.
+	(flash-colors.txt): Ditto.
+	* templates/default/en/Makefile.am (flash-colors.txt): Adopt the changes.
+	* templates/default/ja/Makefile.am (flash-colors.txt): Ditto.
+	* templates/default/all/Makefile.am (flash-colors.txt): Ditto.
+
+	* config.c (reset_colors): Renamed from zphoto_config_reset_colors.
+	(zphoto_config_reset_flash_colors): New function.
+	(zphoto_config_reset_css_colors): Ditto.
+
+	* wxzphoto.cpp (ImportConfig): Add codes for CSS colors.
+	(ExportConfig): Ditto.
+
+2004-04-30  Satoru Takabayashi  <satoru@namazu.org>
+
+	* util.c (zphoto_image_file_p): Remove .jpeg file.
+	(zphoto_disable_warning): Removed.
+
+	* exif.c (zphoto_exif_get_time): Remove a warning mesage.
+
+	* config.c (zphoto_config_reset_colors): New function.
+
+	* templates/default/en/Makefile.am (colors.txt): New rule.
+	* templates/default/ja/Makefile.am (colors.txt): Ditto.
+	* templates/default/all/Makefile.am (colors.txt): Ditto.
+
+	* wxzphoto.cpp (OnResetColors): New method.
+
+	* config.c (zphoto_config_new): Set CSS colors.
+	* zphoto.c (add_common_substitutions): Add substitutions for CSS colors
+
+	* util.c (zphoto_valid_color_string_p): Allow a color string
+	without an alpha value.
+	(zphoto_decode_color_string): Ditto.
+	(zphoto_encode_color_string): New function.
+
+	* templates/default: New directory.
+	* templates/default/en/*: Moved from templates/en/*.
+	* templates/default/ja/*: Ditto.
+	* templates/default/all/*: Ditto.
+	* templates/default/all/Makefile.am: Adopt changes.
+	* templates/default/en/Makefile.am: Ditto.
+	* templates/default/ja/Makefile.am: Ditto.
+	* Makefile.am (ZPHOTO_TEMPLATE_DIR_RELATIVE): Ditto.
+	* Makefile.am (dist-w32): Ditto.
+
+	* util.c (executable_file_p): New function.
+	(zphoto_support_browser_p): Ditto.
+	(find_browser): Ditto.
+	(zphoto_launch_browser): Support platforms other than Windows.
+
+	* Makefile.am (LDADD): Removed @INTLLIBS@.
+
+2004-04-29  Satoru Takabayashi  <satoru@namazu.org>
+
+	* configure.in: Changed an option from --enable-wx to --disable-wx.
+
+	* wxzphoto.cpp (Notify): Add an assertion.
+
+2004-04-28  Satoru Takabayashi  <satoru@namazu.org>
+
+	* util.c (zphoto_init_gettext): Removed.
+
+	* zphoto.h: Don't include libint.h any longer.
+
+	* util.c (zphoto_disable_warning): New function.
+	* wxzphoto.cpp (ZphotoInit): Use zphoto_disable_warning.
+
+2004-04-27  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (UpdateStatus): Use progress->task_long.
+
+	* progress.c (zphoto_progress_start): Add a new parameter: task_long.
+	(zphoto_progress_finish): Free task_long.
+	* flash.c (arrange_each): Add a long task name.
+	* zphoto.c (make_thumbnails): Ditto.
+	(make_photo_html_files): Ditto.
+	(make_zip_file): Ditto.
+	(copy_photos): Ditto.
+	(include_photos): Ditto.
+
+	* zphoto.c (zphoto_get_nsteps): New function.
+
+	* util.c (zphoto_expand_path): Add a second parameter.
+
+	* wxzphoto.cpp (CollectFiles): New method.
+
+	* config.c (zphoto_config_read_rcfile): Don't use
+	zphoto_chdir_if_w32 any longer.
+
+2004-04-26  Satoru Takabayashi  <satoru@namazu.org>
+
+	* Makefile.am (resource.o): Renamed from icon.o.
+
+	* wxzphoto.rc: Add winxp.manifest line.
+
+	* winxp.manifest: New file.
+
+2004-04-25  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (Start): Add a new progress bar for displaying
+	the total progress. Suggested by Kazuhiro NISHIYAMA
+	<zn@mbf.nifty.com>.
+
+2004-04-24  Satoru Takabayashi  <satoru@namazu.org>
+
+	* image.cpp (advanced_copy_image): Fixed memory leak bug.
+
+	* wxzphoto.cpp (OnContextMenu): Add menus.
+	(OnOpenFile): New method for wxZphotoListBox.
+	(OnOpenDirectory): Ditto.
+	(OpenInputFiles): New method for wxZphotoFrame.
+	(OpenInputDirectory): Ditto.
+	(OpenDirectoryGeneric): Renamed from OpenDirectory.
+	(ChooseColorGeneric): Renamed from ChooseColor.
+
+	* config.c (rewrite_lang): New function.
+	(zphoto_config_new): Use it.
+
+	* util.c (zphoto_platform_w32_jpn_p): Renamed from locale_w32_p.
+
+	* Makefile.am (locale): New rule.
+
+	* wxzphoto.cpp (ZphotoInit): Use zphoto_init_gettext().
+
+	* Makefile.am (DEFS): Add LOCALEDIR.
+
+	* util.c (zphoto_init_gettext): New function.
+	(zphoto_init_magick): Renamed from zphoto_initialize_magick.
+
+	* zphoto.h: Add gettext codes.
+
+2004-04-23  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (EXTRA_DIST): Add config.rpath mkinstalldirs.
+
+2004-04-23  Satoru Takabayashi  <satoru@namazu.org>
+
+	* configure.in: Add gettext stuff.
+	* po/*: Generated by gettextize.
+	* m4/*: Generated by gettextize.
+	* ABOUT-NLS: Copied from /usr/share/gettext.
+
+2004-04-23  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* Makefile.am (SUBDIRS): Add m4.
+	(ACLOCAL_AMFLAGS): New variable.
+	(EXTRA_DIST): Add config.rpath.
+	* configure.in (AC_OUTPUT): Add po/Makefile.in,
+
+2004-04-23  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (EnsureAllPathsAreSane): New method.
+	(EnsureOutputDirectoryIsSane): Ditto..
+	(ConvirmOverwrite): Ditto.
+
+	* util.c (relative_path_p): New function.
+	(has_drive_letter): Ditto.
+	(zphoto_expand_path): New function.
+	(zphoto_directory_p): Renamed from directory_exist_p.
+	(zphoto_directory_empty_p): New function.
+
+	* configure.in: Bumped version number to 0.99.
+
+	* util.c (zphoto_path_separator): New function.
+
+	* zphoto.c (zphoto_get_output_dir): Removed.
+
+	* util.c (zphoto_launch_browser): New function.
+
+	* zphoto.c (zphoto_get_output_dir): New function.
+
+	* wxzphoto.cpp (OnOK): Add the code for launching a browser.
+
+	* progress.c (zphoto_progress_start): New function.
+	(zphoto_progress_finish): Ditto.
+	(zphoto_progress_new): Simplified.
+	(zphoto_progress_destroy): Simplified.
+	(progress_quiet): Moved from zphoto.c
+	(zphoto_progress_set_data): New function.
+	(zphoto_progress_set_func): Ditto.
+	* flash.c (zphoto_flash_maker_make): Change parameters to adopt
+	changes in progress.c.
+	(arrange_each): Ditto.
+	* progress.c (zphoto_progress_set): Add a longjmp handling.
+
+	* zphoto.c (zphoto_abort): New function.
+
+2004-04-22  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (progress_gui): New function.
+	(UpdateStatus): New method.
+
+	* zphoto.c (zphoto_set_progress): New function.
+	(zphoto_new): Add a new field: progress_data.
+	* progress.c (zphoto_progress_new): Add a new field: data.
+	* flash.c (zphoto_flash_maker_make): Add a new parameter:
+	progress_data. 
+	(arrange_each): Ditto.
+
+	* wxzphoto.h (wxZphotoProgressDialog): New class generated by wxGlade.
+	* wxzphoto.cpp (Start): New method for wxZphotoProgressDialog.
+
+	* wxzphoto.cpp (ClearPreview): Renamed from ErasePreview.
+
+	* config.c (rcfile_name): New function.
+	(find_rcfile): Use it.
+	(zphoto_config_save_rcfile): Ditto.
+
+	* wxzphoto.cpp (ExportConfig): New method.
+
+	* config.c (zphoto_config_save_rcfile): New function.
+
+	* wxzphoto.cpp (Update): New method for wxZphotoPanel.
+	(Attach): New method for wxZphotoListBox.
+	(Notify): Ditto.
+	(SetPreviewPanel): Removed.
+	(SetStatusBar): Removed.
+	(SetInputFilesListBox): Removed.
+	(Subscribe): New method for wxZphotoPanel.
+	(UpdateMessage): New method for wxZphotoStatusBar.
+	(OnCreatePhotoAlbum): New method.
+
+	* wxzphoto.h (wxZphotoObserver): New class.
+	(wxZphotoSubject): New class.
+
+	* wxzphoto.cpp (OnMenuClose): New method.
+
+2004-04-21  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (ImportColor): New method.
+	(OnUpdateUIChangeStatusBar): New method.
+	(UpdateObservers): New method.
+
+	* util.c (zphoto_valid_color_string_p): New method.
+	(zphoto_decode_color_string): Use it.
+	(zphoto_strsuffixcasecmp): Renamed from strsuffixcasecmp.
+
+	* config.c (set_config_value): Validate color values.
+
+	* util.c (zphoto_decode_color_string): New function.
+	* flash.c (translate_color): Use it.
+
+	* wxzphoto.cpp (ImportConfig): Refined.
+	(OnUpdateUIChangeStatus): Renamed from OnUpdateUICreation.
+	(OnFocusLost): New method.
+	(OnFocusGot): New method.
+	(OnClose): New method.
+
+	* config.c (choose_path): Simplified.
+	(replace_path_separator): New function.
+
+	* wxzphoto.cpp (OnQuit): Renamed from OnExit.
+
+2004-04-20  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (ZphotoInit): New method.
+	(ImportConfig): New file.
+
+	* util.c (zphoto_file_p): Never call zphoto_eprintf.
+
+	* zphoto.c (zphoto_add_file_names): Renamed from zphoto_set_file_names.
+
+	* image.cpp (load_image): Removed compilation warnings.
+	(avifile_get_frame): Ditto.
+
+	* configure.in: Add CXXFLAGS for g++.
+
+	* config.c (count_args): Renamed from complete_config.
+
+	* util.c (zphoto_blank_line_p): Moved from config.c
+	(zphoto_complete_line_p): Ditto.
+	(zphoto_chomp): Ditto.
+
+	* zphoto.c (supported_file_p): Moved from config.c.
+	(sort_by_time): Ditto.
+	(sort_by_filename): Ditto.
+	(swap): Ditto.
+	(set_file_names): Ditto.
+	(same_files_p): Ditto.
+	(set_caption): Ditto.
+	(read_caption_table): Ditto.
+	(progress_quiet): Ditto.
+	(progress_bar): Ditto.
+
+	* config.c (collect_input_photos): Removed.
+
+	* util.c (zphoto_initialize_magick): Moved from zphoto.c
+	(zphoto_finalize_magick): Ditto.
+	(zphoto_d_name_workaround): Ditto.
+
+	* zphoto.c (zphoto_set_file_names): New function.
+
+	* wxzphoto.cpp (xprintf_wx): New function.
+
+	* configure.in: New option: --enable-wx. wxWidgets is not used by
+	default.
+
+	* util.c (xprintf_console): New function.
+	(xprintf): New static variable.
+	(zphoto_eprintf): Use it.
+	(zphoto_wprintf): Ditto.
+	(zphoto_set_xprintf): New function.
+	* zphoto.h: New type: ZphotoXprintfFunc.
+
+	* wxzphoto.rc: Renamed from zphoto.rc
+
+	* Makefile.am (SUBDIRS): Add icon.
+	* icon/Makefile.am: New file.
+	* configure.in: Generate icon/Makefile.
+
+	* wxzphoto.cpp (ResizeImage): New method.
+	(ErasePreview): Ditto.
+	(SetPreviewSize): Ditto.
+	(DrawLoadingMessage): Ditto.
+
+2004-04-19  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (SetInputFilesListBox): New method.
+	(wxZphotoFrame): Use it.
+	(SetPreviewPanel): New method.
+	(UpdatePreview): Removed.
+
+	* wxzphoto.h (class wxZphotoPanel): New class.
+
+	* wxzphoto.cpp (OnPaint): New method.
+
+	* icon/zphoto.ico: New file.
+	* icon/zphoto16.png: New file.
+	* icon/zphoto32.png: New file.
+	* icon/zphoto48.png: New file.
+
+	* wxzphoto.cpp (OnChooseTemplateDirectory): New method.
+	(OpenDirectory): New method.
+	(OnOpenDirectory): Use it.
+	(OnChooseOutputDirectory): New method.
+	(OnChooseFlashFont): New method.
+
+	* wxzphoto.h (wxZphotoFrame): Renamed from wxZphotoMainFrame.
+
+	* wxzphoto.cpp (OnChooseProgressBarHousingColor): Renamed from
+	ChooseProgressBarHousingColor. Other similar methods are alos
+	renamed.
+
+2004-04-17  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (Append): New method for wxZphotoListBox.
+	(Delete): Ditto.
+	(Clear): Ditto.
+	(AddInputFileName): Removed.
+	(DeleteSelectedItem): New method for wxZphotoListBox.
+	(OnClearSelected): Ditto.
+	(OnClearAll): Renamed from OnClear.
+	(OnOpenFile): Use lastVisitedDirectory.
+	(OnOpenDirectory): Ditto.
+	(UpdatePreview): New method.
+	(OnListbox): New method.
+	(GetInputFile): New method.
+	(OnUpdateUICreation): New method.
+
+	* util.c (zphoto_image_file_p): Use zphoto_file_p.
+	(zphoto_video_file_p): Ditto.
+	(zphoto_web_file_p): Ditto.
+	(zphoto_dot_file_p): Ditto.
+
+2004-04-16  Satoru Takabayashi  <satoru@namazu.org>
+
+	* util.c (zphoto_image_file_p): Unsupport *.tif *.tiff *.xpm.
+
+	* wxzphoto.cpp (OnOpenFile): Renamed from OnOpen.
+	(OnOpenDirectory): New method.
+	(OnChar): New method in wxZphotoListBox.
+	(OnOpenFile): Use a wildcard to choose only *.jpg or *.png.
+
+	* configure.in: Supply $(EXEEXT) to WXZPHOTO substitution.
+
+	* configure.in: Add a wxWidgets support and --disable-wx option.
+
+	* Makefile.am (wxzphoto_SOURCES): New rule.
+	(wxzphoto_LDADD): Ditto.
+	(EXTRA_PROGRAMS): New rule.
+
+	* util.c (find_last_separator): Avoid warnings in W32 codes.
+	(find_last_separator_jpn): Ditto.
+
+	* configure.in: Bumped version number to 1.0.
+
+2004-04-15  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.cpp (ChooseBackgroundColor): New method.
+	(ChooseColor): Ditto.
+	(WxZphotoMainFrame): Add colorData initialization.
+	(ChooseBorderActiveColor): New method.
+	(ChooseBorderInactiveColor): Ditto.
+	(ChooseShadowColor): Ditto.
+	(ChooseCaptionBorderColor): Ditto.
+	(ChooseCaptionFrameColor): Ditto.
+	(ChooseCaptionTextColor): Ditto.
+	(ChooseProgressBarColor): Ditto.
+	(ChooseProgressBarTextColor): Ditto.
+	(ChooseProgressBarHousingColor): Ditto.
+	(AddInputFileName): New method.
+	(OnContextMenu): New method.
+	(ShowContextMenu): New method.
+	(OnClear): New method.
+
+	* config.c (zphoto_config_write): Renamed from zphoto_config_dump.
+	(zphoto_config_write): Take a second parameter "out".
+
+	* Makefile.am (zphoto_SOURCES): Add main.cpp
+
+	* main.cpp: New file.
+
+	* progress.c: Don't use TRUE/FALSE any longer.
+
+	* util.c: Use directory_exist_p.
+
+	* zphoto.c (zphoto_make_all): New function.
+	(zphoto_destroy): Ditto.
+	(zphoto_new): Ditto.
+
+	* config.c (zphoto_config_new): Renamed from default_config.
+	(zphoto_config_read_rcfile): Renamed from zphoto_config_new.
+
+	* util.c (zphoto_chdir_if_w32): Moved from zphoto.c
+
+	* zphoto.c (initialize_magick): Take no argument.
+
+	* config.c: Import all config related functions from zphoto.c.
+	(blank_line_p): New function.
+	(config_read): Use it and allow blank lines.
+	(complete_line_p): New function.
+	(read_caption_table): Ditto.
+	(config_read): Use it and check too long lines.
+	(read_caption_table): Ditto.
+	(chomp): New function.
+	(config_read): Use it.
+	(read_caption_table): Ditto.
+
+	* Makefile.am (zphoto_SOURCES): Add config.c.
+
+	* config.c: New file.
+
+	* zphoto.h: Add ZphotoConfig typedef.
+
+	* zphoto.c (zphoto_config_dump): Add "zphoto_" prefix.
+	(zphoto_config_parse): Ditto.
+	(zphoto_config_new): Ditto.
+	(zphoto_config_destroy): Ditto.
+	(zphoto_config_complete): Ditto.
+	(ZphotoConfig): Renamed from Config.
+
+2004-04-14  Satoru Takabayashi  <satoru@namazu.org>
+
+	* wxzphoto.wxg: New file.
+
+	* wxzphoto.h: New file.
+
+	* wxzphoto.cpp: New file.
+
+	* flash.c (create_color): Fixed a struct initialization to avoid
+	warnings with gcc -pedantic
+	(arrange_each): Ditto.
+	(create_progress_bar): Ditto.
+	(calc_progress_bar_point): Ditto.
+
+	* exif.c (zphoto_exif_file_p): Make exif_header unsigned to avoid
+	warnings with gcc -pedantic
+
+2004-04-13  Satoru Takabayashi  <satoru@namazu.org>
+
+	* configure.in: Add -pedantic to CFLAGS.
+
+	* zphoto.c (read_caption_table): Fixed a syntax error reported by 
+	UMENO Takashi <umeno@rr.iij4u.or.jp>.
+
+2004-04-10  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto: 0.9 Released!
+
+	* Makefile.am (icon.o): New rule.
+	(zphoto_DEPENDENCIES): New variable.
+	(EXTRA_DIST): Add zphoto.rc and zphoto.ico.
+
+	* zphoto.ico: New file.
+
+	* zphoto.rc: New file.
+
+	* templates/.photo.html: Fixed file_name -> photo_file_name.
+
+	* zphoto.c (add_common_substitutions): Fixed flash_filename ->
+	flash_file_name. So do zip_filename.
+
+	* NEWS: Updated.
+
+	* doc/zphoto-ja.html: Updated.
+
+	* doc/zphoto.html: Updated.
+
+	* Makefile.am (dist-w32): Generate zphoto.txt.
+
+	* zphoto.c (default_config): Changed the default value of
+	photo_width to 600.
+	(config_parse): New option: --config.
+
+	* image.cpp (get_new_image_size): Modified so that only the image
+	larger than copier->width is resized.
+
+	* zphoto.c (default_config): Changed the default value of gamma
+	from 0.0 to 1.0.
+	(make_thumbnails): Modified the gamma value handling.
+	(copy_photos): Ditto.
+	(default_config): Changed option name: --nsamples -> --movie-nsamples.
+
+	* image.cpp (zphoto_image_copier_new): Changed the default value
+	of gamma from 0.0 to 1.0.
+	(advanced_copy_image): Modified the gamma value handling.
+
+	* Makefile.am (dist-w32): Use nkf.
+
+	* templates/ja/noflash.html: Removed <meta
+	http-equiv="Content-Type" content="text/html; charset=EUC-JP">
+	line. 
+
+	* templates/ja/index.html: Ditto.
+
+2004-04-08  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (rclist_add_real): New function.
+	(rclist_get): Ditto.
+	(rclist_new): Ditto.
+	(rclist_destroy): Ditto.
+
+	* alist.c (zphoto_alist_add): Allow NULL as a value.
+	(zphoto_alist_destroy): Ditto.
+
+	* zphoto.c (config_parse): Don't call collect_input_photos in the
+	function.
+	(config_complete): Call collect_input_photos in the
+	function instead.
+	(collect_input_photos): Fixed the bug that causes segv if
+	file_names is NULL. (no files are passed to zphoto).
+	(underscore_to_hyphen): New function.
+	(config_parse): New option: --dump-config.
+	(config_dump): New function.
+	(read_caption_table): Chomp LF at the end of lines.
+	(config_read): New function.
+	(read_config_file): New function.
+	(find_rcfile): New function.
+
+2004-04-05  Satoru Takabayashi  <satoru@namazu.org>
+
+	* util.c (zphoto_video_file_p): Fixed the condition bug.
+
+	* configure.in: Bumped version number to 0.9.
+
+2004-04-04  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto: 0.8 Released!
+
+	* zphoto.c (length): Removed.
+
+	* util.c (strsuffixcasecmp): Ensure str1 is longer than str2.
+
+	* zphoto.c (default_config): Removed fields argc and argv.
+	(collect_input_photos): New function.
+	(ensure_all_supported_files): Removed.
+
+2004-04-03  Satoru Takabayashi  <satoru@namazu.org>
+
+	* doc/zphoto-ja.html: Updated.
+
+	* doc/zphoto.html: Updated.
+
+	* Makefile.am (dist-w32): New rule.
+
+	* util.c (locale_jpn_p): New function for mingw support.
+	(shift_jis_first_byte_p): New function.
+	(shift_jis_second_byte_p): New function.
+	(find_separator): Use it.
+	(zphoto_basename): Simplified.
+	(zphoto_dirname): Simplified.
+	(find_last_separator): Renamed from find_separator.
+	(find_last_separator_jpn): Renamed from find_separator_jpn.
+
+	* doc/Makefile.am (update-web): Removed.
+
+	* image.cpp (advanced_copy_image): Don't check exception.severity
+	because I don't understand it...
+	(advanced_copy_image): Use get_new_image_size.
+
+	* configure.in: Bumped version number to 0.8.
+
+2004-04-02  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (initialize_magick): Renamed from initialize.
+	(finalize_magick): Renamed from finalize_magick.
+	(chdir_if_w32): New function.
+	(main): Use it.
+
+	* util.c (zphoto_dirname): New function.
+
+	* zphoto.c (progress_bar): Shorten the bar.
+	(progress_bar): Use fflush for stderr.
+	(d_name_workaround): New function.
+	(make_index_html_files): Use it.
+
+	* image.cpp (get_new_image_size): New function.
+	(advanced_copy_image): Use it.
+	(zphoto_image_get_size): Implemented ImageMagick support.
+	(advanced_copy_image): Ditto.
+
+	* zphoto.c (initialize): New function.
+	(main): Use it.
+	(finalize): New function.
+	(main): Use it.
+
+	* util.c (zphoto_file_exist_p): New function.
+
+	* zphoto.c (choose_path): New function.
+	(default_config): Use it.
+	(or): Removed.
+
+2004-04-01  Satoru Takabayashi  <satoru@namazu.org>
+
+	* configure.in: New options: --disable-zip, --disable-imlib2,
+	--disable-magick, --disable-avifile.
+
+	* util.c (zphoto_support_image_p): Check HAVE_MAGICK as well.
+	(root_p): New function.
+	(zphoto_platform_w32_p): New function.
+
+	* Makefile.am (INCLUDES): Use $(LIBMAGICK_CFLAGS)
+	(LDADD): Use $(LIBMAGICK_LDFLAGS) and $(LIBMAGICK_LIBS)
+
+	* configure.in: Add a check for ImageMagick.
+
+	* zphoto.c (main): Use zphoto_support_zip_p.
+
+	* util.c (zphoto_support_zip_p): New function.
+
+	* configure.in: Add a check for zip command.
+
+	* util.c (find_separator): New function.
+	(zphoto_basename): Use it.
+
+	* image.cpp: Don't include <libgen.h>.
+
+	* util.c (zphoto_mkdir): Define mkdir for _WIN32 system.
+
+	* flash.c: Don't include X11/Xlib.h, Imlib2.h, libgen.h.
+
+	* zphoto.c (supported_file_p): New function.
+	(ensure_all_supported_files): Use it.
+
+	* util.c (zphoto_support_image_p): New function.
+
+	* image.c: Removed.
+
+	* loader.cpp: Removed.
+
+	* image.cpp: New file from image.c and loader.cpp.
+
+	* configure.in (LIBIMLIB2_LDFLAGS): Define HAVE_IMLIB2.
+
+	* flash.c (get_samples): Use zphoto_image_save_samples.
+	(load_photo): Check zphoto_support_video_p.
+
+	* image.c (zphoto_image_save_samples): New function.
+
+	* zphoto.c (ensure_all_supported_files): Use
+	zphoto_support_video_p instead of zphoto_loader_support_video_p.
+
+	* util.c (zphoto_support_video_p): Moved from loader.cpp
+	(zphoto_loader_support_video_p).
+
+	* zphoto.c (add_photo_substitutions): Use zphoto_image_get_size
+	instead of zphoto_get_image_size.
+	(make_html_album): Ditto.
+
+	* image.c (zphoto_image_get_size): Moved from util.c
+	(zphoto_get_image_size).
+
+	* zphoto.h: Don't include X11/Xlib.h and Imlib2.h.
+
+	* image.c: Use loader.h.
+
+	* loader.h: New file.
+
+	* configure.in: Remove tmp.c after used.
+
+	* zphoto.c: Removed unneccesary #include <libgen.h>.
+
+2004-03-30  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (config_parse): New option: --html-suffix based on a
+	patch from Kouhei Sutou <kou@cozmixng.org>.
+	(default_config): New parameter: config.html_suffix.
+	(set_file_names): Use it.
+	
+2004-02-26  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto: 0.7 Released!
+
+	* zphoto.c (config_parse): New option: --include-original.
+	(config_destroy): Free elements of html_captions only if they are
+	defined.
+	(set_caption): Use zphoto_strdup for setting elements of
+	html_captions.
+	(add_photo_substitutions): Add a new substitution:
+	next_photo_file_name.
+	(include_photos): New function.
+	(main): Use it.
+
+	* templates/.photo.html (preload_image): Add a variable for
+	preloading the next image: next_photo_file_name.
+
+2003-12-24  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (config_complete): Free caption_table.
+
+2003-12-23  Satoru Takabayashi  <satoru@namazu.org>
+
+	* flash.c (define_cursor_key): Renamed from define_key.
+	(create_link_action): Simplified.
+	(create_open_action): Renamed from create_link_action.
+	(create_zoom_in_action): Set _root.current_id.
+	(add_interval_frames): Add "open" frame.
+	(define_keys): Add emacs binding.
+	(define_keys): Add vi binding.
+
+	* zphoto.c (tokenize): New function.
+	(config_destroy): Free config->title.
+
+	* flash.c (zphoto_flash_maker_make): Use define_keys.
+	(define_keys): New function.
+	(define_key): New function.
+
+2003-12-22  Satoru Takabayashi  <satoru@namazu.org>
+
+	* flash.c (add_interval_frames): Add a blink animation.
+
+	* util.c (directory_exist_p): Refined.
+
+	* templates/.photo.html: Add #{caption} handling.
+
+	* templates/zphoto.css: New class: strong.caption.
+
+	* zphoto.c (swap): New method.
+	(sort_by_time): Ditto.
+	(sort_by_file_name): Ditto.
+	(compare_by_name): Removed.
+	(config_parse): New option: --caption-file.
+	Based on Naoiku Kanda's patch <kanda@trans.ntt-at.co.jp>.
+
+	* util.c (zphoto_create_time_string): Removed.
+	(zphoto_time_string): New method.
+
+	* zphoto.c (read_caption_table): New method.
+	(make_thumbnails): Use output_photos for a progress bar.
+	(make_photo_html_files): Ditto.
+	(make_zip_file): Ditto.
+	(copy_photos): Ditto.
+	(file_new): Removed.
+	(file_destroy): Ditto.
+	(make_html_album): Use zphoto_time_sring.
+	(add_photo_substitutions): Ditto.
+
+	* alist.c: New file.
+
+	* configure.in: Add codes for checking whether ming 0.2a is used.
+
+2003-12-19  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (config_parse): New option: --sequential.
+	(add_photo_substitutions): Modify #{file_name} handling.
+
+2003-12-16  Kazuhiko  <kazuhiko@fdiary.net>
+
+	* zphoto.c (config_parse): New option: --no-sort.
+
+2003-06-30  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c: Fix the time stamp sorting bug.
+
+	* configure.in: Bumped version number to 0.7.
+
+2003-05-21  Satoru Takabayashi  <satoru@namazu.org>
+
+	* templates/en/index.html: Enable flash plugin's menu.
+
+	* templates/ja/index.html: Enable flash pulgin's menu.
+
+2003-04-23  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (config_parse): New options: --flash-file-name,
+	--zip-file-name. 
+	- Thanks to Kouhei Sutou <kou@cozmixng.org> for the patch.
+	[zphoto:64]
+
+2003-03-27  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto: 0.6 Released!
+
+	* doc/zphoto.html: Documentation updated.
+
+	* doc/zphoto-ja.html: Documentation updated.
+
+	* loader.cpp (zphoto_loader_support_video_p): Renamed from 
+	zphoto_loader_support_movie_p
+
+	* util.c (zphoto_video_file_p): Renamed from zphoto_movie_file_p
+
+	* templates/all/Makefile.am (install-data-local): Add mkdir -p.
+
+	* zphoto.c (add_photo_substitutions): Support a link for a movie.
+
+	* templates/.photo.html: Modified to support a link for a movie.
+
+	* zphoto.c (config_parse): New option: --no-fade: change from --fade.
+
+2003-03-26  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (make_flash): Call zphoto_flash_maker_set_fade_effect.
+	(config_parse): New option: --fade, --nsamples.
+
+	* flash.c (zphoto_flash_maker_new): Add parameter: nsamples.
+	(add_transition_with_fade_effect): New function.
+	(zphoto_flash_maker_set_fade_effect): Ditto.
+
+	* loader.cpp (avifile_seek): New function.
+
+2003-03-25  Satoru Takabayashi  <satoru@namazu.org>
+
+	* flash.c (load_photo): New function.
+	(get_samples): Ditto.
+
+	* loader.cpp (zphoto_loader_load_samples): New function.
+
+	* flash.c (create_image): Change parameters.
+
+2003-03-24  Satoru Takabayashi  <satoru@namazu.org>
+
+	* image.c (zphoto_image_copier_copy): Support movie files.
+
+	* loader.cpp (avifile_destroy): New function.
+	(avifile_get_frame): New function.
+	(avifile_convert_to_imlib_image): New function.
+	(avifile_new): New function.
+
+	* util.c (zphoto_image_file_p): New function.
+	(zphoto_movie_file_p): New function.
+	(zphoto_web_file_p): New function.
+	(zphoto_dot_file_p): New function.
+	(xstrcasestr): Moved from zphoto.c.
+	(downcase): Ditto.
+	(strsuffixcasecmp): Ditto.
+
+	* zphoto.c (jpeg_file_p): Removed.
+	(movie_file_p): Removed.
+	(web_file_p): Removed.
+	(dot_file_p): Removed.
+
+	* loader.cpp (zphoto_loader_support_movie_p): New function.
+
+	* zphoto.c (config_complete): Add error handling for the situation
+	when input and output file names are same.
+	- Thanks to Akira Tagoh <at@gclab.org> for the report.
+	(same_files_p): New function.
+
+	* loader.cpp: New file based on Yuya Nishida's patch.
+	- Thanks to Yuya Nishida <yuya@j96.org> for the patch.
+
+	* zphoto.c: s/options/config/g
+	(config_new): Renamed from options_new.
+	(config_parse): Renamed from options_parse.
+	(config_destroy): Renamed from options_destroy.
+	(movie_file_p): New function.
+	(ensure_all_supported_files): New function.
+
+	* acinclude.m4: New file. Import avifile.m4.
+
+	* configure.in: Bumped version number to 0.6.
+
+2003-02-17  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (add_common_substitutions): Add substitutions not to
+	show the broken link to zphoto.zip.
+
+2003-02-03  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto: 0.5 Released!
+
+	* zphoto.c (options_complete): Don't convert the suffix to ".jpg".
+	Thanks to UMENO Takashi <umeno@rr.iij4u.or.jp> for the bug report.
+	Preserve the original suffix.
+
+2003-01-31  Satoru Takabayashi  <satoru@namazu.org>
+
+	* exif.c (ushort_from_be): New function.
+	(ulong_from_be): Ditto.
+	(exif_little_endian_p): New file.
+
+	* flash.c (add_preload_anim): Avoid the use of multi-line string
+	to avoid the compile warnings.
+	- Thanks to Nobuhiro IMAI <nov@yo.rim.or.jp> for the bug report.
+	(add_interval_frames): Ditto.
+
+	* util.c: Add defined(__NetBSD__) ... to avoid the compile error
+	on *BSD systems.
+	Thanks to UMENO Takashi <umeno@rr.iij4u.or.jp> for the bug report.
+
+	* zphoto.c (xstrcasestr): Renamed from strcasestr to avoid
+	the name confliction. 
+	Thanks to UMENO Takashi <umeno@rr.iij4u.or.jp> for the bug report.
+
+	* configure.in: Bumped version number to 0.5.
+
+	* util.c (zphoto_basename): New function.
+	- Use zphoto_basename instead of basename(3) in all files.
+	Thanks to UMENO Takashi <umeno@rr.iij4u.or.jp> for the bug report.
+
+2003-01-30  Satoru Takabayashi  <satoru@namazu.org>
+
+	* image.c (copy_image): Removed.
+	(zphoto_image_copier_copy): New parameter: time.
+
+	* util.c (zphoto_wprintf): New function.
+
+	* flash.c (zphoto_flash_maker_new): New parameter: time_stamps.
+
+	* zphoto.c (compare_by_time): Renamed from compare_by_mtime.
+	(options_parse): New option: --use-exif.
+	(file_new): New function.
+	(file_destroy): New function.
+
+	* flash.c (destroy_photo): Add free(photo).
+
+	* exif.c: New file.
+
+2003-01-29  Satoru Takabayashi  <satoru@namazu.org>
+
+	* templates/all/Makefile.am (templates_DATA): Add .photo.html
+	- Thanks to Nobuhiro IMAI <nov@yo.rim.or.jp> for the suggestion.
+
+	* zphoto.c (options_parse): New option: --no-zip.
+	(copy_photos): Set task name to "copy" or "resize".
+
+2003-01-28  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto: 0.4 Released!
+
+	* zphoto.c (make_html_album): Use zphoto_get_image_size.
+	(add_photo_substitutions): Ditto.
+
+	* util.c (zphoto_get_image_size): New function.
+
+	* templates/.photo.html: New file.
+
+	* flash.c (create_link_action): Use zphoto_modify_suffix.
+
+	* util.c (zphoto_create_date_string): New function.
+	(zphoto_suppress_suffix): New function.
+	(zphoto_modify_suffix): New function.
+
+	* zphoto.c (dot_file_p): New function.
+	(make_index_html_files): Renamed from make_html_files.
+	(add_index_substitutions): Renamed from add_substitutions.
+	(make_html_file): Removed.
+
+	* templates/zphoto.css: Add new styles: img.thumbnai, p.photo,
+	a.navi, a.navi:hover, img.photo, p.thumbnails
+
+	* zphoto.c: Add class='thumbnail' to <img> tag.
+	Change class='photo' to class='thumbnails'
+
+2003-01-17  Satoru Takabayashi  <satoru@namazu.org>
+
+	* templates/ja/noflash.html: Converted to EUC-JP.
+
+	* templates/en/index.html: Supplement missing quotationmarks.
+
+	* templates/ja/index.html: Converted to EUC-JP.
+	Supply missing quotationmarks.
+	- Thanks to Mitsuru Shimamura <mitsuru@diana.dti.ne.jp> for the
+	suggestion.
+
+2003-01-16  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c: Add a substitution definition for zip_file_name.
+
+	* configure.in: Bumped version number to 0.4.
+
+2003-01-09  Satoru Takabayashi  <satoru@namazu.org>
+
+	* doc/zphoto.rd: Removed.
+
+	* doc/zphoto-ja.rd: Removed.
+
+2003-01-08  Satoru Takabayashi  <satoru@namazu.org>
+
+	* COPYING: New file: GNU LESSER GENERAL PUBLIC LICENSE
+	- Thanks to Nobuhiro IMAI <nov@yo.rim.or.jp> for the suggestion.
+
+	* flash.c (zphoto_flash_maker_make): Use ZphotoProgress to show a
+	progress bar.
+
+	* zphoto.c (make_thumbnails): Use ZphotoProgress to show a
+	progress bar.
+	(make_zip_file): Ditto.
+	(copy_photos): Ditto.
+
+	* progress.c: New file.
+
+	* configure.in: Bumped version number to 0.4.
+
+2003-01-07  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto: 0.3 Released!
+
+	* flash.c (add_preload_anim): Refine progress bar's animation.
+	The housing blinks gradually using a cosine curve.
+
+	* zphoto.c (options_parse): Group color options.
+	(options_parse): Add unknown option handling.
+
+2003-01-06  Satoru Takabayashi  <satoru@namazu.org>
+
+	* EfontSerifB.fdb: New file. Converted from efont-serif true type
+	font. <http://openlab.jp/efont/serif/>
+
+	* flash.c (zphoto_flash_maker_new): Set default colors.
+
+	* zphoto.c (options_parse): Add new options:
+	--background-color
+	--border-active-color
+	--border-inactive-color
+	--shadow-color
+	--caption-border-color
+	--caption-frame-color
+	--caption-text-color
+	--progress-bar-color
+	--progress-bar-text-color
+	--progress-bar-housing-color
+	(default_options): Set default colors.
+
+	* zphoto.h: Define colors.
+
+	* flash.c (translate_color): New function.
+
+	* flash.c (add_interval_frames): Add codes for caption creation.
+	(cover_preload_anim): Removed.
+	(create_background): Removed.
+
+	* zphoto.c (options_parse): New option: --caption-by-filename.
+	Thanks to "Simon Bennett" <simon_p_bennett@hotmail.com> for the patch.
+	(compare_by_name): New function.
+
+	* flash.c (zphoto_flash_maker_set_caption_options): New function.
+
+	* zphoto.c (options_parse): New option: --disable-captions.
+	Thanks to "Simon Bennett" <simon_p_bennett@hotmail.com> for the patch.
+	(make_flash): Call zphoto_flash_maker_set_caption_options.
+
+	* zphoto.c (options_parse): Show default for --template-dir.
+
+	* Modify copyright description in *.c from 2002 to 2002-2003.
+
+	* configure.in: Bumped version number to 0.3.
+
+	* Makefile.am (ZPHOTO_TEMPLATE_DIR): New variable.
+	(ZPHOTO_FONT): Ditto.
+	(Techno.fdb): Removed. Don't wget Techno.fdb any longer.
+
+	* zphoto.c (options_parse): Call ensure_all_jpeg_files().
+	(jpeg_file_p): New function.
+	(file_p): New function.
+	(ensure_all_jpeg_files): New function.
+	(default_options): Use ZPHOTO_FONT and ZPHOTO_TEMPLATE_DIR macros.
+	Thanks to "Sergiu Partenie" <sergiu.partenie@connex.ro> for the
+	suggestion. 
+
+	* flash.c (create_text): Fix unclosed file bug.
+	Thanks to Mutsutoshi Yoshimoto <riku@freedom.co.jp> for the patch.
+
+	* zphoto.c (make_zip_file): New function.
+
+2002-08-13  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c: Modify copyright description in *.c. 2000 to 2002.
+
+2002-06-14  Satoru Takabayashi  <satoru@namazu.org>
+
+	* image.c (zphoto_image_copier_new): New field: resize_p.
+	(zphoto_image_copier_new): New field: effect_p.
+	(convert_needed_p): New function.
+
+	* zphoto.c (options_complete): Force converting suffix to ".jpg"
+	(suppress_suffix): New function.
+
+	* image.c (advanced_copy_image): Refine the error message for
+	reporting imlib_load_image's error.
+
+2002-06-13  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c: Use POPT_AUTOHELP and POPT_TABLEEND.
+	(show_help): Removed.
+	(options_parse): Define help messages for poptPrintHelp.
+
+2002-06-11  Satoru Takabayashi  <satoru@namazu.org>
+
+	* flash.c (calc_zooming_offset_unit_diagonal): Removed.
+	(calc_origin_diagonal): Removed.
+	(zphoto_flash_maker_set_diagonal_zooming): Removed.
+	(calc_zooming_offset_unit_frontal): Removed.
+	(zphoto_flash_maker_set_frontal_zooming): Removed.
+	(calc_zooming_scale): Use pow for non-linear zooming.
+	(calc_zooming_offset): Ditto.
+
+	* zphoto.c (default_options): Abolish --diagonal option.
+
+2002-06-03  Satoru Takabayashi  <satoru@namazu.org>
+
+	* flash.c (create_zooming_clip_normal): Use add_wait_frames.
+	(create_zooming_clip_art): Ditto.
+
+	* zphoto: 0.2 Released!
+
+	* flash.c (create_shadowed_photo_inactive): New function.
+	(create_shadowed_photo_active): New function.
+
+	* flash.c (arrange_stripe, create_stripe): Removed.
+
+	* support/vasprintf.c: New file. 
+	Imported from gnome-common/support/vasprintf.c
+
+	* support/Makefile.am: New file.
+
+2002-05-31  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (options_complete): Sort input file names in their
+	modified times.
+	(compare_by_mtime): New file.
+
+	* configure.in: Add checking for imlib2-config.
+
+	* configure.in: Add checking for popt.
+
+	* Makefile.am: Add checking for ming.
+	Apply a patch by Masatake YAMATO <jet@gyve.org>
+
+	* configure.in: Add checking for ming.
+	Apply a patch by Masatake YAMATO <jet@gyve.org>
+
+2002-05-30  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (options_parse): New option: --art
+
+	* flash.c: Lots of refinements. 
+	- Add fancy visualization for loading photos.
+	- Add zooming out animation.
+
+2002-05-25  Satoru Takabayashi  <satoru@namazu.org>
+
+	* templates/en/index.html: Enable Flash controller for IE on
+	Windows only.
+
+	* templates/ja/index.html: Enable Flash controller for IE on
+	Windows only.
+
+2002-05-24  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (make_html_table): Removed.
+	(make_html_album): New function.
+
+	* templates/zphoto.css: Refined.
+
+2002-05-23  Satoru Takabayashi  <satoru@namazu.org>
+
+	* templates/all/Makefile.am: New file.
+
+	* zphoto.c (downcase): New function.
+	(web_file_p): New function.
+
+	* templates/en/index.html: Refine JavaScript codes for Internet
+	Explorer. It makes zooming smooth.
+
+	* configure.in: Bumped version number to 0.2.
+
+2002-05-22  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto: 0.1 Released!
+
+	* zphoto.c (options_parse): New option: --diagonal-zooming.
+
+	* flash.c (calc_caption_point): Refined.
+	(calc_zooming_offset_unit_diagonal): New function.
+	(calc_origin_diagonal): Ditto.
+	(calc_zooming_offset_unit_frontal): Ditto.
+	(calc_origin_frontal): Ditto.
+	(zphoto_flash_maker_set_frontal_zooming): Ditto.
+	(zphoto_flash_maker_set_diagonal_zooming): Ditto.
+
+2002-05-21  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c: Refined.
+	(web_file_p): New function.
+
+	* util.c (zphoto_file_p): New function.
+	(zphoto_eopendir): Ditto.
+
+2002-05-20  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c (make_html_files): Make "zphoto.css".
+
+	* templates/ja/noflash.html: New file.
+
+	* templates/ja/index.html: New file.
+
+	* templates/ja/Makefile.am: New file.
+
+	* templates/zphoto.css: New file.
+
+	* util.c (zphoto_strdup): New function.
+
+	* flash.c (add_wait_frames): New function.
+
+2002-05-18  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto.c: Add HTML generation codes.
+
+	* templates/en/index.html: New file.
+
+	* templates/en/Makefile.am: New file.
+
+	* templates/Makefile.am: New file.
+
+2002-05-17  Satoru Takabayashi  <satoru@namazu.org>
+
+	* template.c: New file.
+
+	* util.c (zphoto_asprintf): New function.
+	(zphoto_mkdir): Ditto.
+	(zphoto_get_mtime): Ditto.
+
+	* image.c (copy_image): Ditto.
+
+	* flash.c (create_link_action): Simplify using asprintf.
+
+2002-05-16  Satoru Takabayashi  <satoru@namazu.org>
+
+	* image.c (main): New file.
+
+	* Makefile.am (LDADD): Add -lImlib2
+
+	* zphoto.c (parse_options): New function. Use popt.
+	(free_options): Ditto.
+	(usage): Ditto.
+	(length): Ditto.
+
+	* flash.c (create_zooming_clip): Hide the mouse cursor  when
+	zooming done.
+	(create_anim): Show the mouse cursor when the cursor is out of buttons.
+	(create_text_anim): Renamed from create_preload_anim().
+	(add_preload_anim): New function.
+	(create_progress_bar_housing): New function.
+	(create_progress_bar): New function.
+	(terminate_movie): New function.
+	(save_movie): New function.
+	(cover_preload_anim): New function.
+	(create_text_anim): Removed.
+	(calc_loading_text_point): Removed.
+
+2002-05-15  Satoru Takabayashi  <satoru@namazu.org>
+
+	* Makefile.am: New file.
+
+	* zphoto.h: New file.
+
+	* util.c: New file.
+
+	* flash.c: New file.
+
+	* Divide sourcec odes.
+
+2002-05-14  Satoru Takabayashi  <satoru@namazu.org>
+
+	* Add "now loading..." preload animation.
+
+2002-05-13  Satoru Takabayashi  <satoru@namazu.org>
+
+	* Improve zooming animation. Zooming in frontal instead of diagonal.
+	
+2002-05-10  Satoru Takabayashi  <satoru@namazu.org>
+
+	* Add a shadow to each photo.
+
+	* Add a caption to each photo for displaying last-modified-time.
+
+2002-05-09  Satoru Takabayashi  <satoru@namazu.org>
+
+	* First working version.
+
+	* Bad zooming animation. Zooming in diagonal instead of frontal.
+
+2002-05-08  Satoru Takabayashi  <satoru@namazu.org>
+
+	* zphoto: Development started!
+
+	* Makefile: New file.
+
+	* zphoto.c: New file.
+

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="euc-jp"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="ROBOTS" content="NOARCHIVE" />
+<meta http-equiv="content-script-type" content="text/javascript" />
+<link rel="stylesheet" href="http://namazu.org/~satoru/satoru.css" media="all" type="text/css" />
+<title>zphoto: Flashベースのフォトアルバムを作るツール</title>
+</head>
+<body>
+<p class="lang-navigator"><a href="zphoto.html">English</a> | Japanese</p>
+
+<h1>zphoto: Flashベースのフォトアルバムを作るツール</h1>
+<p class="last-modified">最終更新日: 2004-07-21 (公開日: 2002-05-22)</p>
+
+<hr />
+
+<h2>zphoto とは?</h2>
+<p>
+zphoto は Flash ベースのフォトアルバムを作るツールです。
+デジカメ写真から Flash を用いたフォトアルバム (オンラインアルバム)
+を簡単に作成できます。
+</p>
+
+<ul>
+<li><a href="http://namazu.org/~satoru/zphoto/sample/">サンプル写真集</a></li>
+
+<li><a href="http://namazu.org/~satoru/zphoto/sample2/">サンプル動画集</a></li>
+
+<li><a href="http://namazu.org/~satoru/zphoto/art/">アーチョ写真集</a></li>
+</ul>
+<!-- ad -->
+
+<h2>新着情報</h2>
+
+<ul>
+<li><em>2004-07-21</em>: <a href="#download">zphoto 1.2</a>を公開
+<ul>
+<li>動画ファイルの扱いに関するバグを修正しました。</li>
+<li>configure.in と Makefile.am を改善しました。</li>
+<li>wxzphoto でも動画ファイルを扱えるようにしました</li>
+<li>その他、細かい修正をいくつか行っています。</li>
+</ul>
+</li>
+<li><em>2004-07-07</em>: <a href="#download">zphoto 1.1</a> を公開
+<ul>
+<li>' などの記号を含むファイル名を扱えるようにしました。</li>
+<li>テンプレートファイルを整理しました。</li>
+<li>その他、細かい修正をいくつか行っています。</li>
+</ul>
+</li>
+<li><em>2004-05-09</em>: <a href="#download">zphoto 1.0</a> を公開
+<ul>
+<li><a href="#gui">GUI</a>に対応しました。</li>
+<li>デフォルトで EXIF の撮影日の情報を使うようにし、
+--exif オプションを廃止して --no-exif オプションを追加しました。</li>
+<li>その他、細かい修正をいくつか行っています。</li>
+</ul>
+</li>
+
+<li><em>2004-04-24</em>: <a href="#ml">メーリングリスト</a>が復活しました</li>
+
+<li><em>2002-05-22</em>: <a href="#download">zphoto 0.1</a> を公開</li>
+</ul>
+
+<h2>必要なもの</h2>
+
+<p>
+zphoto をソースからビルドするには次のソフトウェアが必要です。
+<a href="#w32">Windows 版</a>はバイナリパッケージが用意され
+ているため、ビルドは不要です。
+</p>
+
+<ul>
+<li><a href="http://ming.sourceforge.net/">ming</a> 0.2a 以上</li>
+
+<li><a href="http://www.enlightenment.org/pages/imlib2.html">Imlib2</a> 
+(<a href="http://prdownloads.sourceforge.net/enlightenment/">ダウンロード</a>)
+または
+<a href="http://www.imagemagick.org/">ImageMagick</a><br />
+Imlib2 1.1.0 と ImageMagick 5.5.7 で動作確認をしています。<br />
+Imlib2 の方が約10倍高速です。
+</li>
+
+<li><a href="http://freshmeat.net/projects/popt/">popt</a> 1.6.3以上</li>
+
+<li><a href="http://www.info-zip.org/pub/infozip/Zip.html">zip</a>
+(zip ファイルを作る場合にのみ必要)</li>
+
+<li><a href="http://avifile.sourceforge.net/">avifile</a> 0.7.38 以上 (動画ファイルを扱う場合にのみ必要)</li>
+
+<li><a href="http://www.wxwidgets.org/">wxWidgets</a> 2.4.1 以上 (GUI版を作る場合にのみ必要)</li>
+</ul>
+
+<h2><a name="gui" id="gui">GUI版</a></h2>
+
+<p>
+zphoto の GUI は
+<a href="http://www.wxwidgets.org/">wxWidgets</a> と
+<a href="http://wxglade.sourceforge.net/">wxGlade</a> 
+を使って開発されています。GUI版をビルドするには wxWidgets が必要です。
+Unix 系のプラットフォームでは wxzphoto というファイル名でビルドされます。
+</p>
+
+<h3>スクリーンショット</h3>
+<table>
+<tr><td><a href="images/wxzphoto.png"><img alt="on Windows" src="images/wxzphoto-mini.png" /></a></td>
+<td>Windows XP の日本語ロカールでの動作画面。
+wxWidgets 2.5.1 でビルド。
+英語のロカールにも対応している。
+</td></tr>
+<tr><td><a href="images/wxzphoto-linux.png"><img alt="on Linux" src="images/wxzphoto-linux-mini.png" /></a></td><td>
+Debian GNU/Linux の日本語ロカールでの動作画面。
+wxWidgets 2.5.1 と GTK+ 2.2.4 でビルド。
+英語のロカールにも対応している。
+</td></tr>
+</table>
+
+<h2>コマンドライン版の使い方</h2>
+
+<h3>例</h3>
+<p>
+写真ファイル <em>~/photos/*.jpg</em> から「<em>退屈な写真集</em>」 という題の写真集を <em>sample</em> というディレクトリに作成する。 それぞれの写真は横幅を <em>800</em> ピクセルに調整し、ガンマ補 正 <em>1.25</em> を適用してやや明るくする。
+</p>
+<pre>
+% zphoto -o sample --photo-width=800 --gamma 1.25 --title '退屈な写真集' ~/photos/*.jpg
+</pre>
+<p>
+標準では Flash のフォントには <a href="http://openlab.jp/efont/serif/">efont-serif</a> の <em>/usr/local/share/zphoto/fonts/EfontSerifB.fdb</em> が、 HTML の雛形には <em>/usr/local/share/zphoto/templates/en</em> が用いられます。
+</p>
+
+<h3>コマンドラインオプション</h3>
+<p>
+zphoto --help を実行してください。
+</p>
+
+<h3><a name="config" id="config">設定ファイル</a></h3>
+
+<p>
+Unix 版の zphoto は起動時に ~/.zphotorc が存在すれば設定ファ
+イルとして読み込みます。
+Windows版では zphoto.exe と同じディレクトリにある zphoto.txt 
+が読み込まれます。
+zphoto --config オプションで読み込む設定ファイルを指定するこ
+ともできます。
+</p>
+
+<p>
+zphoto --dump-config を実行すると設定ファイルを生成できます。
+次のように実行すると ~/.zphotorc を作成することができます。
+</p>
+
+<pre>
+% zphoto --dump-config &gt; ~/.zphotorc
+</pre>
+
+<p>
+設定ファイルは次のようなテキストファイルです。
+</p>
+
+<pre>
+photo_width           = 600
+thumbnail_width       = 320
+html_thumbnail_width  = 120
+gamma                 = 1.000000
+...
+</pre>
+
+<h3>キャプションの指定</h3>
+<p>
+--caption-file で指定するファイルには
+</p>
+<pre>
+foo.jpg &lt;TAB&gt; caption for foo
+bar.jpg &lt;TAB&gt; caption for bar
+</pre>
+<p>
+のように一行ごとにファイル名とキャプションを TAB 記号で区切って記述します。
+</p>
+
+<h2><a name="w32" id="w32">Windows版</a></h2>
+
+<p>
+<a href="http://www.mingw.org/">MinGW</a>
+でビルドしたバイナリです。Windows XP で動作確認をしています。
+インストールは不要で zipファイルを展開すればすぐに使えます。
+レジストリも変更しません。
+<a href="#download">ダウンロード</a>から入手できます。
+</p>
+
+<p>
+Windows 2000, XP 上では正常に動作するはずです。
+Windows 98 では、アルバムの作成自体は成功するものの
+zphoto の終了時に「このプログラムは不正な処理を行ったので強
+制終了されます」というエラーが発生するようです。
+</p>
+
+<h3>使い方</h3>
+
+<p>
+Windows 版はの zphoto.exe は <a href="#gui">GUI版</a>です。
+</p>
+
+<p>
+日本語のファイル名の画像を扱う場合は「高度な設定」タブの「通
+し番号を出力ファイル名に使う」を使うことをお勧めします。この
+設定は、zphoto が出力するファイルのファイル名を 000001.jpg 
+のような連番にするオプションです。これにより、Web サーバにアッ
+プロードするときに発生しがちな「日本語のファイル名がおかしく
+なる」といった問題を回避することができます。
+</p>
+
+<p>
+Windows 版では zip ファイルの作成にはまだ対応していません。
+</p>
+
+<h2><a name="download" id="download">ダウンロード</a></h2>
+<p>
+<a href="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public License</a> に従ったフリーソフトウェアとして公開します。 完全に無保証です。
+</p>
+
+<ul>
+<li><a href="http://namazu.org/~satoru/zphoto/zphoto-1.2.tar.gz">zphoto-1.2.tar.gz</a></li>
+<li><a href="http://namazu.org/~satoru/zphoto/zphoto-w32-1.2.zip">zphoto-w32-1.2.zip</a> (Windows バイナリ)<br />
+ming 0.2a, popt 1.7, ImageMagick 5.5.7, libjpeg 6b, 
+libpng 1.2.5, zlib 1.2.1, wxWidgets 2.5.1 
+を静的リンクしています。
+</li>
+<li><a href="http://sourceforge.net/cvs/?group_id=111003">CVS</a></li>
+</ul>
+
+<h2><a name="ml" id="ml">メーリングリスト</a></h2>
+<p>
+zphotoの話題は zphotoメーリングリストで扱っています。
+下のようなメールを出すと参加できます。
+</p>
+<pre>
+Subject: 参加します
+To: zphoto-new&#64;quickml.com
+Cc: satoru&#64;namazu.org
+
+なんだかんだ。
+</pre>
+
+<h2>関連リンク集</h2>
+
+<ul>
+<li><a href="http://www.forest.impress.co.jp/article/2004/05/21/zphoto.html">サムネイルの拡大・縮小など見た目に楽しいWebアルバムを作成できる「zphoto」</a><br />
+<a href="http://www.forest.impress.co.jp/">窓の杜</a>に掲載された紹介記事です。</li>
+<li><cite><a href="http://namazu.org/~satoru/unimag/7/">横着プログラミング 第7回: zphoto: ズーミングするオンラインアルバムを作るツール</a></cite><br />
+Unix Magazine 2002年8月号に書いた記事です。</li>
+
+<li><a href="http://sappari.org/nameraka">なめらかアルバム</a><br /></li>
+
+<li><a href="http://www.hirax.net/cgi-bin/wiki.cgi?jphoto2">jphoto2</a></li>
+
+<li><a href="http://www.cs.umd.edu/hcil/photomesa/">PhotoMesa Image Browser</a></li>
+
+<li><a href="http://freshmeat.net/projects/zphoto/">freshmeat.net: zphoto</a></li>
+</ul>
+
+<hr />
+<address><a href="http://namazu.org/~satoru/">Satoru Takabayashi</a></address>
+</body>
+</html>

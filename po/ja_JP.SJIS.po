@@ -1,0 +1,418 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2004 Satoru Takabayashi
+# This file is distributed under the same license as the zphoto package.
+# Satoru Takabayashi <satoru@namazu.org>, 2004.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: zphoto 0.99\n"
+"Report-Msgid-Bugs-To: satoru@namazu.org\n"
+"POT-Creation-Date: 2004-07-21 03:07+0900\n"
+"PO-Revision-Date: 2004-04-23 22:40+0900\n"
+"Last-Translator: Satoru Takabayashi <satoru@namazu.org>\n"
+"Language-Team: Japanese <satoru@namazu.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=Shift_JIS\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: wxzphoto.cpp:289 wxzphoto.cpp:370
+msgid "&Open File...\tCtrl-O"
+msgstr "ファイルを開く(&O)...\tCtrl-O"
+
+#: wxzphoto.cpp:290 wxzphoto.cpp:371
+msgid "Open &Directory...\tCtrl-D"
+msgstr "ディレクトリを開く(&D)...\tCtrl-D"
+
+#: wxzphoto.cpp:292 wxzphoto.cpp:373
+msgid "&Clear the selected file"
+msgstr "選択したファイルをクリア(&C)"
+
+#: wxzphoto.cpp:293 wxzphoto.cpp:374
+msgid "Clear &all files"
+msgstr "すべてのファイルをクリア"
+
+#: wxzphoto.cpp:376
+msgid "&Create a photo album\tF5"
+msgstr "フォトアルバムを作る (&C)\tF5"
+
+#: wxzphoto.cpp:378
+msgid "E&xit\tAlt-X"
+msgstr "終了(&X)\tAlt-X"
+
+#: wxzphoto.cpp:379
+msgid "&File"
+msgstr "ファイル(&F)"
+
+#: wxzphoto.cpp:381
+msgid "About zphoto..."
+msgstr "zphoto について"
+
+#: wxzphoto.cpp:382
+msgid "&Help"
+msgstr "ヘルプ(&H)"
+
+#: wxzphoto.cpp:387
+msgid "Title"
+msgstr "タイトル"
+
+#: wxzphoto.cpp:388
+msgid "sample title"
+msgstr "sample title"
+
+#: wxzphoto.cpp:389
+msgid "Output directory"
+msgstr "出力先ディレクトリ"
+
+#: wxzphoto.cpp:390
+msgid "sample output directory"
+msgstr "sample output directory"
+
+#: wxzphoto.cpp:391 wxzphoto.cpp:412 wxzphoto.cpp:415
+msgid "Choose..."
+msgstr "選択..."
+
+#: wxzphoto.cpp:393
+msgid "Create a photo album!"
+msgstr "フォトアルバムを作成"
+
+#: wxzphoto.cpp:395
+msgid ""
+"Size:\n"
+"Date:"
+msgstr ""
+"サイズ:\n"
+"日時:"
+
+#: wxzphoto.cpp:396
+msgid ""
+"800x600\n"
+"2004-01-01 01:23:45"
+msgstr ""
+"800x600\n"
+"2004-01-01 01:23:45"
+
+#: wxzphoto.cpp:397
+msgid "Include original image files"
+msgstr "元の画像ファイルを含める"
+
+#: wxzphoto.cpp:398
+msgid "Use serial numbers for output file names"
+msgstr "通し番号を出力ファイル名に使う"
+
+#: wxzphoto.cpp:399
+msgid "Sort by file name"
+msgstr "ファイル名でソートする"
+
+#: wxzphoto.cpp:400
+msgid "Disable captions"
+msgstr "キャプションを消す"
+
+#: wxzphoto.cpp:401
+msgid "Don't use EXIF's date information"
+msgstr "EXIF の撮影日の情報を使わない"
+
+#: wxzphoto.cpp:403
+msgid "Output photo width"
+msgstr "出力画像の横幅"
+
+#: wxzphoto.cpp:405
+msgid "Flash size"
+msgstr "Flash のサイズ"
+
+#: wxzphoto.cpp:408
+msgid "Gamma correction"
+msgstr "ガンマ補正"
+
+#: wxzphoto.cpp:409
+msgid "1.2345"
+msgstr "1.2345"
+
+#: wxzphoto.cpp:410
+msgid "Template directory"
+msgstr "テンプレートのディレクトリ"
+
+#: wxzphoto.cpp:413
+msgid "Flash Font"
+msgstr "Flash 用フォント"
+
+#: wxzphoto.cpp:416 wxzphoto.cpp:448
+msgid "Background"
+msgstr "背景"
+
+#: wxzphoto.cpp:418
+msgid "Active photo's border"
+msgstr "アクティブな画像の枠線"
+
+#: wxzphoto.cpp:421
+msgid "percent of opacity"
+msgstr "% の透明度"
+
+#: wxzphoto.cpp:422
+msgid "Inactive photo's border"
+msgstr "非アクティブな画像の枠線"
+
+#: wxzphoto.cpp:425
+msgid "Shadow"
+msgstr "影"
+
+#: wxzphoto.cpp:428
+msgid "Caption border"
+msgstr "キャプションの枠線"
+
+#: wxzphoto.cpp:431
+msgid "Caption frame"
+msgstr "キャプションの枠"
+
+#: wxzphoto.cpp:434
+msgid "Caption text"
+msgstr "キャプションのテキスト"
+
+#: wxzphoto.cpp:437
+msgid "Progress bar"
+msgstr "プログレスバー"
+
+#: wxzphoto.cpp:440
+msgid "Progress bar text"
+msgstr "プログレスバーのテキスト"
+
+#: wxzphoto.cpp:443
+msgid "Progress bar housing"
+msgstr "プログレスバーの外枠"
+
+#: wxzphoto.cpp:447 wxzphoto.cpp:469
+msgid "Reset to the template's default"
+msgstr "テンプレートのデフォルトに戻す"
+
+#: wxzphoto.cpp:450
+msgid "Text"
+msgstr "テキスト"
+
+#: wxzphoto.cpp:452
+msgid "Footer"
+msgstr "フッタ"
+
+#: wxzphoto.cpp:454
+msgid "Horizontal line"
+msgstr "横線"
+
+#: wxzphoto.cpp:456
+msgid "Photo border"
+msgstr "写真の枠線"
+
+#: wxzphoto.cpp:458
+msgid "Thumbnail border"
+msgstr "縮小版の枠線"
+
+#: wxzphoto.cpp:460
+msgid "Navigation link"
+msgstr "案内矢印のリンク"
+
+#: wxzphoto.cpp:462
+msgid "Navigation link (visited)"
+msgstr "案内矢印のリンク (訪問済)"
+
+#: wxzphoto.cpp:464
+msgid "Navigation border"
+msgstr "案内矢印の枠線"
+
+#: wxzphoto.cpp:466
+msgid "Navigation surface (focused)"
+msgstr "案内矢印の表面 (フォーカス中)"
+
+#: wxzphoto.cpp:500
+msgid "zphoto"
+msgstr "zphoto"
+
+#: wxzphoto.cpp:504
+msgid "output photos are resized to the width"
+msgstr "出力画像はこの横幅にサイズ変更されます"
+
+#: wxzphoto.cpp:506
+msgid "Set the flash size by width and height."
+msgstr "Flash のサイズを横と縦で指定してください"
+
+#: wxzphoto.cpp:509
+msgid "acceptable range is 0 to 10"
+msgstr "0 ～ 10 の値が有効です"
+
+#: wxzphoto.cpp:547
+msgid "Preview"
+msgstr "プレビュー"
+
+#: wxzphoto.cpp:550
+msgid "Input Files"
+msgstr "入力ファイル"
+
+#: wxzphoto.cpp:686
+msgid "Basic"
+msgstr "基本設定"
+
+#: wxzphoto.cpp:687
+msgid "Advanced"
+msgstr "高度な設定"
+
+#: wxzphoto.cpp:688
+msgid "Flash Colors"
+msgstr "Flash の色"
+
+#: wxzphoto.cpp:689
+msgid "Page Colors"
+msgstr "ページの色"
+
+#: wxzphoto.cpp:728
+msgid "1 file is targeted"
+msgstr "1 個のファイルを開いています"
+
+#: wxzphoto.cpp:730
+#, c-format
+msgid "%d files are targeted"
+msgstr "%d 個のファイルを開いています"
+
+#: wxzphoto.cpp:1128
+msgid "loading..."
+msgstr "読み込み中..."
+
+#: wxzphoto.cpp:1222
+#, c-format
+msgid ""
+"%s is not found\n"
+"%s\n"
+"\n"
+msgstr ""
+"%s が見つかりません\n"
+"%s\n"
+"\n"
+
+#: wxzphoto.cpp:1231
+msgid ""
+"Output directory is not empty.\n"
+"Do you want to overwrite it?"
+msgstr ""
+"出力先ディレクトリが空ではありません\n"
+"上書きしますか?"
+
+#: wxzphoto.cpp:1232
+msgid "Confirm"
+msgstr "確認"
+
+#: wxzphoto.cpp:1256 wxzphoto.cpp:1274
+msgid "Error"
+msgstr "エラー"
+
+#: wxzphoto.cpp:1328
+msgid "Image files"
+msgstr "画像ファイル"
+
+#: wxzphoto.cpp:1333
+msgid "Movie files"
+msgstr "動画ファイル"
+
+#: wxzphoto.cpp:1342
+msgid "Choose one or more files"
+msgstr "ファイルを選択してください (複数個を選択できます)"
+
+#: wxzphoto.cpp:1369
+msgid "Choose a directory"
+msgstr "ディレクトリを選択してください"
+
+#: wxzphoto.cpp:1381
+msgid "Choose a flash font"
+msgstr "Flash のフォントを選択してください"
+
+#: wxzphoto.cpp:1450
+msgid "zphoto "
+msgstr "zphoto "
+
+#: wxzphoto.cpp:1451
+msgid ""
+"\n"
+"\n"
+"Copyright (C) 2002-2004 Satoru Takabayashi"
+msgstr ""
+"\n"
+"\n"
+"Copyright (C) 2002-2004 Satoru Takabayashi"
+
+#: wxzphoto.cpp:1452
+msgid "About zphoto"
+msgstr "zphoto について"
+
+#: wxzphoto.cpp:1478
+msgid "Choose a color"
+msgstr "色を選択してください"
+
+#: wxzphoto.cpp:1559
+msgid "Current task"
+msgstr "現在の仕事"
+
+#: wxzphoto.cpp:1561
+msgid "Total progress"
+msgstr "全体の進捗"
+
+#: wxzphoto.cpp:1563
+msgid "Launch a browser"
+msgstr "ブラウザを起動する"
+
+#: wxzphoto.cpp:1564
+msgid "OK"
+msgstr "OK"
+
+#: wxzphoto.cpp:1579
+msgid "Creating a photo album..."
+msgstr "フォトアルバムを作成中..."
+
+#: wxzphoto.cpp:1669
+#, c-format
+msgid "%s: %s"
+msgstr "%s: %s"
+
+#: wxzphoto.cpp:1721
+msgid "A photo album is created!"
+msgstr "フォトアルバムが作成されました"
+
+#: wxzphoto.h:134
+msgid "Please open input files"
+msgstr "入力ファイルを開いてください"
+
+#: flash.c:923
+msgid "Creating a flash..."
+msgstr "Flashを作成中"
+
+#: zphoto.c:106
+msgid "Creating thumbnails..."
+msgstr "縮小版を作成中"
+
+#: zphoto.c:394
+msgid "Creating HTML files..."
+msgstr "HTMLファイルを作成中"
+
+#: zphoto.c:470
+msgid "Creating a zip file..."
+msgstr "ZIPファイルを作成中"
+
+#: zphoto.c:503
+msgid "Copying images..."
+msgstr "画像をコピー中"
+
+#: zphoto.c:508
+msgid "Resizing images..."
+msgstr "画像をサイズ変更中"
+
+#: zphoto.c:533
+msgid "Including originals..."
+msgstr "元の画像をコピー中"
+
+#~ msgid "Total"
+#~ msgstr "全体の進捗"
+
+#~ msgid "Resize"
+#~ msgstr "サイズ変更"
+
+#~ msgid "Html"
+#~ msgstr "HTML"
+
+#~ msgid "status"
+#~ msgstr "状態"
+
+#~ msgid "Processing %s [%d/%d]"
+#~ msgstr "処理中... %s [%d/%d]"

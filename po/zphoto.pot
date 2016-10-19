@@ -1,0 +1,392 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Satoru Takabayashi
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: satoru@namazu.org\n"
+"POT-Creation-Date: 2004-07-21 03:07+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: wxzphoto.cpp:289 wxzphoto.cpp:370
+msgid "&Open File...\tCtrl-O"
+msgstr ""
+
+#: wxzphoto.cpp:290 wxzphoto.cpp:371
+msgid "Open &Directory...\tCtrl-D"
+msgstr ""
+
+#: wxzphoto.cpp:292 wxzphoto.cpp:373
+msgid "&Clear the selected file"
+msgstr ""
+
+#: wxzphoto.cpp:293 wxzphoto.cpp:374
+msgid "Clear &all files"
+msgstr ""
+
+#: wxzphoto.cpp:376
+msgid "&Create a photo album\tF5"
+msgstr ""
+
+#: wxzphoto.cpp:378
+msgid "E&xit\tAlt-X"
+msgstr ""
+
+#: wxzphoto.cpp:379
+msgid "&File"
+msgstr ""
+
+#: wxzphoto.cpp:381
+msgid "About zphoto..."
+msgstr ""
+
+#: wxzphoto.cpp:382
+msgid "&Help"
+msgstr ""
+
+#: wxzphoto.cpp:387
+msgid "Title"
+msgstr ""
+
+#: wxzphoto.cpp:388
+msgid "sample title"
+msgstr ""
+
+#: wxzphoto.cpp:389
+msgid "Output directory"
+msgstr ""
+
+#: wxzphoto.cpp:390
+msgid "sample output directory"
+msgstr ""
+
+#: wxzphoto.cpp:391 wxzphoto.cpp:412 wxzphoto.cpp:415
+msgid "Choose..."
+msgstr ""
+
+#: wxzphoto.cpp:393
+msgid "Create a photo album!"
+msgstr ""
+
+#: wxzphoto.cpp:395
+msgid ""
+"Size:\n"
+"Date:"
+msgstr ""
+
+#: wxzphoto.cpp:396
+msgid ""
+"800x600\n"
+"2004-01-01 01:23:45"
+msgstr ""
+
+#: wxzphoto.cpp:397
+msgid "Include original image files"
+msgstr ""
+
+#: wxzphoto.cpp:398
+msgid "Use serial numbers for output file names"
+msgstr ""
+
+#: wxzphoto.cpp:399
+msgid "Sort by file name"
+msgstr ""
+
+#: wxzphoto.cpp:400
+msgid "Disable captions"
+msgstr ""
+
+#: wxzphoto.cpp:401
+msgid "Don't use EXIF's date information"
+msgstr ""
+
+#: wxzphoto.cpp:403
+msgid "Output photo width"
+msgstr ""
+
+#: wxzphoto.cpp:405
+msgid "Flash size"
+msgstr ""
+
+#: wxzphoto.cpp:408
+msgid "Gamma correction"
+msgstr ""
+
+#: wxzphoto.cpp:409
+msgid "1.2345"
+msgstr ""
+
+#: wxzphoto.cpp:410
+msgid "Template directory"
+msgstr ""
+
+#: wxzphoto.cpp:413
+msgid "Flash Font"
+msgstr ""
+
+#: wxzphoto.cpp:416 wxzphoto.cpp:448
+msgid "Background"
+msgstr ""
+
+#: wxzphoto.cpp:418
+msgid "Active photo's border"
+msgstr ""
+
+#: wxzphoto.cpp:421
+msgid "percent of opacity"
+msgstr ""
+
+#: wxzphoto.cpp:422
+msgid "Inactive photo's border"
+msgstr ""
+
+#: wxzphoto.cpp:425
+msgid "Shadow"
+msgstr ""
+
+#: wxzphoto.cpp:428
+msgid "Caption border"
+msgstr ""
+
+#: wxzphoto.cpp:431
+msgid "Caption frame"
+msgstr ""
+
+#: wxzphoto.cpp:434
+msgid "Caption text"
+msgstr ""
+
+#: wxzphoto.cpp:437
+msgid "Progress bar"
+msgstr ""
+
+#: wxzphoto.cpp:440
+msgid "Progress bar text"
+msgstr ""
+
+#: wxzphoto.cpp:443
+msgid "Progress bar housing"
+msgstr ""
+
+#: wxzphoto.cpp:447 wxzphoto.cpp:469
+msgid "Reset to the template's default"
+msgstr ""
+
+#: wxzphoto.cpp:450
+msgid "Text"
+msgstr ""
+
+#: wxzphoto.cpp:452
+msgid "Footer"
+msgstr ""
+
+#: wxzphoto.cpp:454
+msgid "Horizontal line"
+msgstr ""
+
+#: wxzphoto.cpp:456
+msgid "Photo border"
+msgstr ""
+
+#: wxzphoto.cpp:458
+msgid "Thumbnail border"
+msgstr ""
+
+#: wxzphoto.cpp:460
+msgid "Navigation link"
+msgstr ""
+
+#: wxzphoto.cpp:462
+msgid "Navigation link (visited)"
+msgstr ""
+
+#: wxzphoto.cpp:464
+msgid "Navigation border"
+msgstr ""
+
+#: wxzphoto.cpp:466
+msgid "Navigation surface (focused)"
+msgstr ""
+
+#: wxzphoto.cpp:500
+msgid "zphoto"
+msgstr ""
+
+#: wxzphoto.cpp:504
+msgid "output photos are resized to the width"
+msgstr ""
+
+#: wxzphoto.cpp:506
+msgid "Set the flash size by width and height."
+msgstr ""
+
+#: wxzphoto.cpp:509
+msgid "acceptable range is 0 to 10"
+msgstr ""
+
+#: wxzphoto.cpp:547
+msgid "Preview"
+msgstr ""
+
+#: wxzphoto.cpp:550
+msgid "Input Files"
+msgstr ""
+
+#: wxzphoto.cpp:686
+msgid "Basic"
+msgstr ""
+
+#: wxzphoto.cpp:687
+msgid "Advanced"
+msgstr ""
+
+#: wxzphoto.cpp:688
+msgid "Flash Colors"
+msgstr ""
+
+#: wxzphoto.cpp:689
+msgid "Page Colors"
+msgstr ""
+
+#: wxzphoto.cpp:728
+msgid "1 file is targeted"
+msgstr ""
+
+#: wxzphoto.cpp:730
+#, c-format
+msgid "%d files are targeted"
+msgstr ""
+
+#: wxzphoto.cpp:1128
+msgid "loading..."
+msgstr ""
+
+#: wxzphoto.cpp:1222
+#, c-format
+msgid ""
+"%s is not found\n"
+"%s\n"
+"\n"
+msgstr ""
+
+#: wxzphoto.cpp:1231
+msgid ""
+"Output directory is not empty.\n"
+"Do you want to overwrite it?"
+msgstr ""
+
+#: wxzphoto.cpp:1232
+msgid "Confirm"
+msgstr ""
+
+#: wxzphoto.cpp:1256 wxzphoto.cpp:1274
+msgid "Error"
+msgstr ""
+
+#: wxzphoto.cpp:1328
+msgid "Image files"
+msgstr ""
+
+#: wxzphoto.cpp:1333
+msgid "Movie files"
+msgstr ""
+
+#: wxzphoto.cpp:1342
+msgid "Choose one or more files"
+msgstr ""
+
+#: wxzphoto.cpp:1369
+msgid "Choose a directory"
+msgstr ""
+
+#: wxzphoto.cpp:1381
+msgid "Choose a flash font"
+msgstr ""
+
+#: wxzphoto.cpp:1450
+msgid "zphoto "
+msgstr ""
+
+#: wxzphoto.cpp:1451
+msgid ""
+"\n"
+"\n"
+"Copyright (C) 2002-2004 Satoru Takabayashi"
+msgstr ""
+
+#: wxzphoto.cpp:1452
+msgid "About zphoto"
+msgstr ""
+
+#: wxzphoto.cpp:1478
+msgid "Choose a color"
+msgstr ""
+
+#: wxzphoto.cpp:1559
+msgid "Current task"
+msgstr ""
+
+#: wxzphoto.cpp:1561
+msgid "Total progress"
+msgstr ""
+
+#: wxzphoto.cpp:1563
+msgid "Launch a browser"
+msgstr ""
+
+#: wxzphoto.cpp:1564
+msgid "OK"
+msgstr ""
+
+#: wxzphoto.cpp:1579
+msgid "Creating a photo album..."
+msgstr ""
+
+#: wxzphoto.cpp:1669
+#, c-format
+msgid "%s: %s"
+msgstr ""
+
+#: wxzphoto.cpp:1721
+msgid "A photo album is created!"
+msgstr ""
+
+#: wxzphoto.h:134
+msgid "Please open input files"
+msgstr ""
+
+#: flash.c:923
+msgid "Creating a flash..."
+msgstr ""
+
+#: zphoto.c:106
+msgid "Creating thumbnails..."
+msgstr ""
+
+#: zphoto.c:394
+msgid "Creating HTML files..."
+msgstr ""
+
+#: zphoto.c:470
+msgid "Creating a zip file..."
+msgstr ""
+
+#: zphoto.c:503
+msgid "Copying images..."
+msgstr ""
+
+#: zphoto.c:508
+msgid "Resizing images..."
+msgstr ""
+
+#: zphoto.c:533
+msgid "Including originals..."
+msgstr ""

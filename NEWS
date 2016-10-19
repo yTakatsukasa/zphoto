@@ -1,0 +1,75 @@
+Overview of Changes in Zphoto 1.2 - 2004-07-21
+
+* Movie file handling bug was fixed.
+* configure.in/Makefile.am were refined.
+* wxzphoto now supports movie files.
+* Other small modifications were also made.
+
+Overview of Changes in Zphoto 1.1 - 2004-07-07
+
+* File name handling bug was fixed. File names
+containing single quotes or any characters are now
+supported.
+* Template files were arranged.
+* Other small modifications were also made.
+
+Overview of Changes in Zphoto 1.0 - 2004-05-09
+
+* A GUI is now supported using wxWidgets and wxGlade.
+* Other small modifications were also made.
+
+Overview of Changes in Zphoto 0.9 - 2004-04-10
+
+* Configuration file is now supported.
+* New options --dump-config and --config are now added.
+* The default value of --photo-width option is changed 
+  from 0 (no resizing) to 600.
+* Other small modifications were also made.
+
+
+Overview of Changes in Zphoto 0.8 - 2004-04-04
+
+* Build with MinGW is now supported.
+* ImageMagick is now supported as well as Imlib2.
+* A Windows Version is now available.
+
+Overview of Changes in Zphoto 0.7 - 2004-02-26
+
+* Some bugs were fixed.
+
+Overview of Changes in Zphoto 0.6 - 2003-03-27
+
+* Video files are now supported using avifile library.
+* Some bugs were fixed.
+
+Overview of Changes in Zphoto 0.5 - 2003-02-03
+
+* EXIF informatioyn is now supported for time stamp. 
+* Some bugs were fixed. (including basename(3) bug).
+
+Overview of Changes in Zphoto 0.4 - 2003-01-28
+
+* A progress bar is now displayed while creating an album.
+* HTML files are now made for each photo. 
+
+Overview of Changes in Zphoto 0.3 - 2003-01-07
+
+* Photo files can now be downloaded as a single zip file. 
+* The efont-serif bold font is included.
+* The zooming animation is now non-linear.
+* Colors can now be customized by command line options.
+* There are also many other small modifications. 
+
+Overview of Changes in Zphoto 0.2 - 2002-06-03
+
+* New option: --art. Art mode.
+* Add fancy visualization for loading photos.
+* Add zooming out animation.
+* Abolish HTML table generation for noflash.html.
+* Generate more simple HTML for noflash.html.
+* Sort photos in modified time.
+* Refine configure script.
+
+Overview of Changes in Zphoto 0.1 - 2002-05-22
+
+* The initial release.

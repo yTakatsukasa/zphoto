@@ -1,0 +1,83 @@
+body {
+	background-color: #{css_background_color};
+	font-size: small;
+	color: #{css_text_color};
+}
+
+h1 {
+	padding: 0.4em 0.4em;
+
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	border-color: #{css_horizontal_line_color};
+}
+
+p.thumbnails  {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+p.footer  {
+	font-size: small;
+	color: #{css_footer_color};
+	font-style: italic;
+	text-align: right;
+	margin-left: 5%;
+}
+
+img.thumbnail {
+	margin:  2px;
+	padding: 5px;
+	border-width: 0;
+	border-color: #{css_thumbnail_border_color};
+	border-style: solid;
+	border-width: 0px 1px 1px 0px;
+}
+
+hr {
+	border-color: #{css_horizontal_line_color};
+	border-style: solid;
+	height: 0px;
+}
+
+p.flash {
+        text-align: center;
+}
+
+p.photo {
+        text-align: center;
+}
+
+a.navi  {
+	border-style: solid;
+	border-width:  1px 2px 2px 1px;
+        padding: 1px 4px 1px 4px;
+        border-color: #{css_navi_border_color};
+        color: #{css_navi_link_color};
+	font-weight: bold;
+        text-decoration: none;
+}
+
+a.navi:hover {
+        background-color: #{css_navi_hover_color};
+}
+
+a.navi:visited {
+	color: #{css_navi_visited_color};
+}
+
+img.photo {
+	margin:  4px;
+	padding: 6px;
+	border-width: 0;
+	border-color: #{css_photo_border_color};
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+}
+
+strong.caption {
+	padding: 0.1em;
+	font-weight: bold;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+}

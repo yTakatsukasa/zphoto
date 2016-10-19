@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<link rel="stylesheet" href="zphoto.css" media="all">
+<meta http-equiv="content-script-type" content="text/javascript">
+<title>#{title}: #{escaped_file_name}</title>
+</head>
+<body>
+<h1><a href="index.html">#{title}</a>: #{escaped_file_name}</h1>
+
+<p class="photo">
+<a class="navi" href="#{prev_html_file_name}">&lt;&lt;</a>
+<a class="navi" href="#{next_html_file_name}">&gt;&gt;</a><br>
+#{photo_link_start}
+<a href="#{original_file_name}"><img class="photo"
+   src="#{file_name}" alt="#{time}"
+   width="#{width}" height="#{height}"></a>
+#{photo_link_end}
+#{movie_link_start}
+<a href="#{file_name}"><img class="photo"
+   dynsrc="#{file_name}" loop="5" loopdelay="3000" controls
+   src="#{thumbnail_file_name}" alt="#{time}"
+   width="#{width}" height="#{height}"></a>
+#{movie_link_end}
+#{caption_start}
+<br>
+<strong class='caption'>#{caption}</strong>
+#{caption_end}
+</p>
+
+<hr>
+<p class="footer">
+Photo album created on #{date}
+with <a href="#{zphoto_url}">zphoto</a>.
+</p>
+<script type="text/javascript">
+<!--
+preload_image = new Image();
+preload_image.src = "#{next_file_name}";
+//-->
+</script>
+</body>
+</html>

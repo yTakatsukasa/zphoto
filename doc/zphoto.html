@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="euc-jp"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="ROBOTS" content="NOARCHIVE" />
+<meta http-equiv="content-script-type" content="text/javascript" />
+<link rel="stylesheet" href="http://namazu.org/~satoru/satoru.css" media="all" type="text/css" />
+<title>zphoto: a flash-based photo album generator</title>
+</head>
+<body>
+<p class="lang-navigator">English | <a href="zphoto-ja.html">Japanese</a></p>
+
+<h1>zphoto: a flash-based photo album generator</h1>
+<p class="last-modified">Last Modified: 2004-07-21 (Since: 2002-05-22)</p>
+
+<hr />
+
+<h2>What's zphoto?</h2>
+<p>
+zphoto is a flash-based photo album generator.
+You can create a flash-based on-line album from photos taken by a
+digital camera.
+</p>
+
+<ul>
+<li><a href="http://namazu.org/~satoru/zphoto/sample/">Sample Album (Photos)</a></li>
+
+<li><a href="http://namazu.org/~satoru/zphoto/sample2/">Sample Album (Movies)</a></li>
+
+<li><a href="http://namazu.org/~satoru/zphoto/art/">Art(?) Album (Photos)</a></li>
+</ul>
+<!-- ad -->
+
+<h2>What's New</h2>
+
+<ul>
+<li><em>2004-07-21</em>: <a href="#download">zphoto 1.2</a> Released!
+<ul>
+<li>Movie file handling bug was fixed</li>
+<li>configure.in/Makefile.am were refined</li>
+<li>wxzphoto now supports movie files</li>
+<li>Other small modifications were also made</li>
+</ul>
+</li>
+<li><em>2004-07-07</em>: <a href="#download">zphoto 1.1</a> Released!
+<ul>
+<li>File name handling bug was fixed. File names
+containing single quotes or any characters are now supported</li>
+<li>Template files are arranged</li>
+<li>Other small modifications were also made</li>
+</ul>
+</li>
+<li><em>2004-05-09</em>: <a href="#download">zphoto 1.0</a> Released!
+<ul>
+<li>A <a href="#gui">GUI</a> is now supported</li>
+<li>EXIF information is now used by default. --exif option is removed and
+--no-exif option is now added</li>
+<li>Other small modifications were also made</li>
+</ul>
+</li>
+
+<li><em>2002-05-22</em>: <a href="#download">zphoto 0.1</a> Released!</li>
+</ul>
+
+<h2>Requirements</h2>
+
+<p>
+To build zphoto from the source codes, the following softwares are required.
+<a href="#w32">Windows version</a> is also provided as a
+binary package so that you don't have to build zphoto from the source codes.
+</p>
+
+<ul>
+<li><a href="http://ming.sourceforge.net/">ming</a> 0.2a or later</li>
+
+<li><a href="http://www.enlightenment.org/pages/imlib2.html">Imlib2</a> 
+(<a href="http://prdownloads.sourceforge.net/enlightenment/">Download</a>)
+or
+<a href="http://www.imagemagick.org/">ImageMagick</a><br />
+Imlib2 1.1.0 and ImageMagick 5.5.7 are tested.<br />
+Imlib2 is mostly much faster than ImageMagick.
+
+</li>
+
+<li><a href="http://freshmeat.net/projects/popt/">popt</a> 1.6.3 or later</li>
+
+<li><a href="http://www.info-zip.org/pub/infozip/Zip.html">zip</a> (Optional command for creating a zip file)</li>
+
+<li><a href="http://avifile.sourceforge.net/">avifile</a> 0.7.38 or later (Optional library for handling video files)</li>
+
+<li><a href="http://www.wxwidgets.org/">wxWidgets</a> 2.4.1 or later (Optional library for building the GUI version)</li>
+</ul>
+
+<h2><a name="gui" id="gui">GUI version</a></h2>
+
+<p>
+The GUI of zphoto is developed with
+<a href="http://www.wxwidgets.org/">wxWidgets</a> and
+<a href="http://wxglade.sourceforge.net/">wxGlade</a>.
+wxWidgets is required to build the GUI version.
+On Unix platforms, wxzphoto is the file name of the GUI version.
+</p>
+
+<h3>Screenshots</h3>
+
+<table>
+<tr><td><a href="images/wxzphoto.png"><img alt="on Windows" src="images/wxzphoto-mini.png" /></a></td>
+<td>Working on Windows XP in Japanese locale, 
+built with wxWidgets 2.5.1.
+English locale is also supported.</td></tr>
+<tr><td><a href="images/wxzphoto-linux.png"><img alt="on Linux" src="images/wxzphoto-linux-mini.png" /></a></td><td>
+Working on Debian GNU/Linux in Japanese locale, 
+built with  wxWidgets 2.5.1 and GTK+ 2.2.4. 
+English locale is also supported.
+</td></tr>
+</table>
+
+<h2>Usage of the command line version</h2>
+
+<h3>Example</h3>
+<p>
+Create a photo alubum called "<em>Boring Photos</em>" with photos of <em>~/photos/*.jpg</em> into the directory <em>sample</em>. Resize each photo with width of <em>800</em> pixels and apply gamma correction <em>1.25</em> for brightening.
+</p>
+<pre>
+% zphoto -o sample --photo-width=800 --gamma 1.25 --title 'Boring Photos' ~/photos/*.jpg
+</pre>
+<p>
+By default, zphoto uses HTML template files in <em>/usr/local/share/zphoto/templates/en</em> to generate HTML files and uses the font <em>/usr/local/share/zphoto/fonts/EfontSerifB.fdb</em>(<a href="http://openlab.jp/efont/serif/">efont-serif</a>) to generate Flash.
+</p>
+
+<h3>Command Line Options</h3>
+<p>
+Try "zphoto --help"
+</p>
+
+<h3><a name="config" id="config">Configuration File</a></h3>
+
+<p>
+On Unix, zphoto reads ~/.zphotorc as a configuration file if it exists.
+On Windows, zphoto reads zphoto.txt in the directory where zphoto.exe exists.
+You can specify an alternate configuration file using --config option.
+</p>
+
+<p>
+To create a configuration file, just run "zphoto
+--dump-config" command.
+You can create ~/.zphotorc by the following.
+</p>
+
+<pre>
+% zphoto --dump-config &gt; ~/.zphotorc
+</pre>
+
+<p>
+The configuration file is a text file like:
+</p>
+
+<pre>
+photo_width           = 600
+thumbnail_width       = 320
+html_thumbnail_width  = 120
+gamma                 = 1.000000
+...
+</pre>
+
+
+<h3>Setting Captions</h3>
+<p>
+--caption-file option requires a line-oriented file like:
+</p>
+<pre>
+foo.jpg &lt;TAB&gt; caption for foo
+bar.jpg &lt;TAB&gt; caption for bar
+</pre>
+<p>
+The file name and the caption should be separated with TAB character.
+</p>
+
+<h2><a name="w32" id="w32">Windows Version</a></h2>
+
+<p>
+The binary presented here is builded with <a
+href="http://www.mingw.org/">MinGW</a> and tested under Windows XP.
+The binary can be obtained from <a href="#download">Download</a>.
+You can unzip the file and just use it without running an installer.
+</p>
+
+<p>
+zphoto should work correctly on Windows 2000 and XP.
+However, on Windows 98, zphoto likely raises an error dialog
+when it exits although photo albums can be created correctly.
+</p>
+
+<h3>Usage</h3>
+
+<p>
+The Windows version of zphoto.exe has <a href="#gui">GUI</a>.
+</p>
+
+<p>
+Note that creation of a zip file is not supported on Windows yet.
+</p>
+
+<h2><a name="download" id="download">Download</a></h2>
+<p>
+zphoto is a free software with ABSOLUTELY NO WARRANTY under the terms of the <a href="http://www.gnu.org/copyleft/lesser.html">GNU Lesser General Public License</a>.
+</p>
+
+<ul>
+<li><a href="http://namazu.org/~satoru/zphoto/zphoto-1.2.tar.gz">zphoto-1.2.tar.gz</a></li>
+<li><a href="http://namazu.org/~satoru/zphoto/zphoto-w32-1.2.zip">zphoto-w32-1.2.zip</a> (Windows binary)<br />
+ming 0.2a, popt 1.7, ImageMagick 5.5.7, libjpeg 6b, 
+libpng 1.2.5, zlib 1.2.1, wxWidgets 2.5.1 
+are statically linked.</li>
+
+<li><a href="http://sourceforge.net/cvs/?group_id=111003">CVS</a></li>
+</ul>
+
+<h2>Links</h2>
+
+<ul>
+<li><a href="http://www.cs.umd.edu/hcil/photomesa/">PhotoMesa Image Browser</a></li>
+
+<li><a href="http://www.hirax.net/cgi-bin/wiki.cgi?jphoto2">jphoto2</a></li>
+
+<li><a href="http://freshmeat.net/projects/zphoto/">freshmeat.net: zphoto</a></li>
+</ul>
+
+<hr />
+<address><a href="http://namazu.org/~satoru/">Satoru Takabayashi</a></address>
+</body>
+</html>

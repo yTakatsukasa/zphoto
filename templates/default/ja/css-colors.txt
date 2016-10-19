@@ -1,0 +1,10 @@
+css_background_color           = #ffffff
+css_text_color                 = #444488
+css_footer_color               = #888888
+css_horizontal_line_color      = #8888bb
+css_photo_border_color         = #8888ff
+css_thumbnail_border_color     = #4444cc
+css_navi_link_color            = #0000ff
+css_navi_visited_color         = #aa55cc
+css_navi_border_color          = #6666ff
+css_navi_hover_color           = #ddddff
