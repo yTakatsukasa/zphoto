@@ -25,6 +25,7 @@
 #include <assert.h>
 #include <time.h>
 #include <string.h>
+#include <stdint.h>
 #include "zphoto.h"
 #include "config.h"
 
@@ -33,15 +34,15 @@ enum {
     HEADER_OFFSET2 = 8
 };
 
-#define SWAP_ENDIAN_LONG(val) ((unsigned long) ( \
-    (((unsigned long) (val) & (unsigned long) 0x000000ffU) << 24) | \
-    (((unsigned long) (val) & (unsigned long) 0x0000ff00U) <<  8) | \
-    (((unsigned long) (val) & (unsigned long) 0x00ff0000U) >>  8) | \
-    (((unsigned long) (val) & (unsigned long) 0xff000000U) >> 24)))
+#define SWAP_ENDIAN_LONG(val) ((uint32_t) ( \
+    (((uint32_t) (val) & (uint32_t) 0x000000ffU) << 24) | \
+    (((uint32_t) (val) & (uint32_t) 0x0000ff00U) <<  8) | \
+    (((uint32_t) (val) & (uint32_t) 0x00ff0000U) >>  8) | \
+    (((uint32_t) (val) & (uint32_t) 0xff000000U) >> 24)))
 
-#define SWAP_ENDIAN_SHORT(val) ((unsigned short) ( \
-    (((unsigned short) (val) & (unsigned short) 0x00ff) << 8) | \
-    (((unsigned short) (val) & (unsigned short) 0xff00) >> 8)))
+#define SWAP_ENDIAN_SHORT(val) ((uint16_t) ( \
+    (((uint16_t) (val) & (uint16_t) 0x00ff) << 8) | \
+    (((uint16_t) (val) & (uint16_t) 0xff00) >> 8)))
 
 static int 
 is_little_endian ()
@@ -49,11 +50,11 @@ is_little_endian ()
     static long retval = -1;
 
     if (retval == -1) {
-	long n = 1;
+	uint32_t n = 1;
 	char *p = (char *)&n;
 	char x[] = {1, 0, 0, 0};
 
-	assert(sizeof(long) == 4);
+	assert(sizeof(uint32_t) == 4);
 	if (memcmp(p, x, 4) == 0) {
 	    retval = 1;
 	} else {
@@ -197,7 +198,7 @@ read_ushort (FILE *fp, int le_exif_p)
 {
     unsigned short x;
 
-    efread(&x, sizeof(unsigned short), 1, fp);
+    efread(&x, sizeof(uint16_t), 1, fp);
     if (le_exif_p)
         return ushort_from_le(x);
     else
@@ -207,9 +208,9 @@ read_ushort (FILE *fp, int le_exif_p)
 static unsigned long
 read_ulong (FILE *fp, int le_exif_p)
 {
-    unsigned long x;
+    uint32_t x;
 
-    efread(&x, sizeof(unsigned long), 1, fp);
+    efread(&x, sizeof(uint32_t), 1, fp);
     if (le_exif_p)
         return ulong_from_le(x);
     else
