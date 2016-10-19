@@ -11,6 +11,7 @@
 // begin byHand
 #include <wx/menu.h>
 #include <wx/dynarray.h>
+#include <wx/colourdata.h>
 #include <zphoto.h>
 // end
 

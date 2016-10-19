@@ -554,8 +554,8 @@ restore_mtime (const char *file_name, time_t mtime)
 static int
 convert_needed_p (const char *src, const char *dest)
 {
-    char *suffix1 = strrchr(src,  '.');
-    char *suffix2 = strrchr(dest, '.');
+    const char *const suffix1 = strrchr(src,  '.');
+    const char *const suffix2 = strrchr(dest, '.');
 
     return strcmp(suffix1, suffix2) != 0;
 }
