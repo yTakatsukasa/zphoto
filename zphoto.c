@@ -806,6 +806,7 @@ zphoto_add_file_names (Zphoto *zphoto, char **file_names, int nfile_names)
     zphoto->html_file_names = zphoto_emalloc(sizeof(char *) * zphoto->nphotos);
     zphoto->photo_captions  = zphoto_emalloc(sizeof(char *) * zphoto->nphotos);
 
+#pragma omp parallel for
     for (i = 0; i < zphoto->nphotos; i++) {
         time_t time = zphoto_image_get_time(zphoto->input_photos[i], 
                                             config->no_exif);
